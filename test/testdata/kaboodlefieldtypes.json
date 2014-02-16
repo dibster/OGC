@@ -1,0 +1,48 @@
+[
+    {
+        "name" : "Text",
+        "description": "Text Field One Line"
+    },
+    {
+        "name" : "Yes or No",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Tag",
+        "description": "Similar to # tags"
+    },
+    {
+        "name" : "Note",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Date",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Time",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Date and Time",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Number",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Money",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Choice",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Lookup",
+        "description": "Date Field"
+    }
+
+
+]
