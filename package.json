@@ -8,6 +8,9 @@
     "ejs": "~0.8.4"
   },
   "devDependencies": {
+    "should": "latest",
+    "supertest" : "latest",
+    "methods":"0.0.1",
     "grunt": "~0.4.1",
     "grunt-autoprefixer": "~0.4.0",
     "grunt-bower-install": "~0.7.0",
