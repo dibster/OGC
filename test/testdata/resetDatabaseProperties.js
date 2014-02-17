@@ -4,25 +4,25 @@ var emptyDb = function() {
 
     console.log("Connected to database : " + db.databaseName);
 
-    db.collection('kaboodleobjects').remove({},function(err,numberRemoved){
+    db.collection('kaboodleobjects').remove({},function(){
         console.log("remove kaboodle objects");
     });
-    db.collection('kaboodlefieldtypes').remove({},function(err,numberRemoved){
+    db.collection('kaboodlefieldtypes').remove({},function(){
         console.log("remove kaboodle field types");
     });
-    db.collection('kaboodleprojects').remove({},function(err,numberRemoved){
+    db.collection('kaboodleprojects').remove({},function(){
         console.log("remove kaboodle projects");
     });
-    db.collection('kaboodleObjectTypes').remove({},function(err,numberRemoved){
+    db.collection('kaboodleObjectTypes').remove({},function(){
         console.log("remove kaboodle types");
     });
-    db.collection('kaboodlelists').remove({},function(err,numberRemoved){
+    db.collection('kaboodlelists').remove({},function(){
             console.log("remove kaboodle lists");
     });
-        db.collection('kaboodleObjectTypes').remove({},function(err,numberRemoved){
+        db.collection('kaboodleObjectTypes').remove({},function(){
         console.log("remove kaboodle types");
     });
-    db.collection('kaboodletags').remove({},function(err,numberRemoved){
+    db.collection('kaboodletags').remove({},function(){
         console.log("remove kaboodle tags");
     });
 
@@ -43,7 +43,7 @@ var populateBaseProperties = function() {
             if (err) {
                 throw err;
             }
-            collection.insert(objects, {safe: true}, function(err, result) {
+            collection.insert(objects, {safe: true}, function(err) {
                 if (err) {
                     throw err;
                 }
@@ -62,7 +62,7 @@ var populateBaseProperties = function() {
             if (err) {
                 throw err;
             }
-            collection.insert(objects, {safe: true}, function(err, result) {
+            collection.insert(objects, {safe: true}, function(err) {
                 if (err) {
                     throw err;
                 }
@@ -81,7 +81,7 @@ var populateBaseProperties = function() {
             if (err) {
                 throw err;
             }
-            collection.insert(objects, {safe: true}, function(err, result) {
+            collection.insert(objects, {safe: true}, function(err) {
                 if (err) {
                     throw err;
                 }
@@ -96,11 +96,11 @@ var populateBaseProperties = function() {
             throw err;
         }
         var objects = JSON.parse(data);
-        db.collection('kaboodletags', function(err, collection) {
+        db.collection('kaboodletags', function(err,collection) {
             if (err) {
                 throw err;
             }
-            collection.insert(objects, {safe: true}, function(err, result) {
+            collection.insert(objects, {safe: true}, function(err) {
                 if (err) {
                     throw err;
                 }
