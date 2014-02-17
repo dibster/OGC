@@ -1,23 +1,9 @@
 var db = require('../../lib/config/env/db');
 
-console.log('Open Database');
-
-//db.open(function(err, db) {
-//    if (!err) {
-//        console.log("Connected to blueprint database");
-//        db.collection('kaboodleobjects', {strict: true}, function(err, collection) {
-//            if (err) {
-//                console.log("The objects collection is empty...");
-//            }
-//        });
-//    }
-//    else {
-//        console.log('err ' + err);
-//    }
-//});
-
 var emptyDb = function() {
-    console.log("Connected to 'blueprintdb' database");
+
+    console.log("Connected to database : " + db.databaseName);
+
     db.collection('kaboodleobjects').remove({},function(err,numberRemoved){
         console.log("remove kaboodle objects");
     });
@@ -39,13 +25,12 @@ var emptyDb = function() {
     db.collection('kaboodletags').remove({},function(err,numberRemoved){
         console.log("remove kaboodle tags");
     });
-    db.collection('kaboodleobjects', {strict:true}, function(err, collection) {
-        populateDB();
-//        res.send('Database Reset');
-    });
+
+    populateBaseProperties();
+
 };
 
-var populateDB = function() {
+var populateBaseProperties = function() {
     var fs = require('fs');
     var kaboodleobjects = 'kaboodleobjects.json';
 
