@@ -4,26 +4,26 @@ var emptyDb = function() {
 
     console.log("Connected to database : " + db.databaseName);
 
-    db.collection('kaboodleobjects').remove({},function(){
-        console.log("remove kaboodle objects");
+    db.collection('ogcObjects').remove({},function(){
+        console.log("remove ogc objects");
     });
-    db.collection('kaboodlefieldtypes').remove({},function(){
-        console.log("remove kaboodle field types");
+    db.collection('ogcFieldTypes').remove({},function(){
+        console.log("remove ogc field types");
     });
-    db.collection('kaboodleprojects').remove({},function(){
-        console.log("remove kaboodle projects");
+    db.collection('ogcProjects').remove({},function(){
+        console.log("remove ogc projects");
     });
-    db.collection('kaboodleObjectTypes').remove({},function(){
-        console.log("remove kaboodle types");
+    db.collection('ogcObjectTypes').remove({},function(){
+        console.log("remove ogc types");
     });
-    db.collection('kaboodlelists').remove({},function(){
-            console.log("remove kaboodle lists");
+    db.collection('ogcLists').remove({},function(){
+            console.log("remove ogc lists");
     });
-        db.collection('kaboodleObjectTypes').remove({},function(){
-        console.log("remove kaboodle types");
+        db.collection('ogcObjectTypes').remove({},function(){
+        console.log("remove ogc types");
     });
-    db.collection('kaboodletags').remove({},function(){
-        console.log("remove kaboodle tags");
+    db.collection('ogcTags').remove({},function(){
+        console.log("remove ogc tags");
     });
 
     populateBaseProperties();
@@ -32,14 +32,14 @@ var emptyDb = function() {
 
 var populateBaseProperties = function() {
     var fs = require('fs');
-    var kaboodleobjects = 'kaboodleobjects.json';
+    var ogcObjects = 'ogcObjects.json';
 
-    fs.readFile(kaboodleobjects, 'utf8', function(err, data) {
+    fs.readFile(ogcObjects, 'utf8', function(err, data) {
         if (err) {
             throw err;
         }
         var objects = JSON.parse(data);
-        db.collection('kaboodleobjects', function(err, collection) {
+        db.collection('ogcObjects', function(err, collection) {
             if (err) {
                 throw err;
             }
@@ -52,13 +52,13 @@ var populateBaseProperties = function() {
         });
     });
 
-    var objecttypes = 'kaboodleObjectTypes.json';
+    var objecttypes = 'ogcObjectTypes.json';
     fs.readFile(objecttypes, 'utf8', function(err, data) {
         if (err) {
             throw err;
         }
         var objects = JSON.parse(data);
-        db.collection('kaboodleObjectTypes', function(err, collection) {
+        db.collection('ogcObjectTypes', function(err, collection) {
             if (err) {
                 throw err;
             }
@@ -71,13 +71,13 @@ var populateBaseProperties = function() {
         });
     });
 
-    var fieldtypes = 'kaboodlefieldtypes.json';
+    var fieldtypes = 'ogcFieldTypes.json';
     fs.readFile(fieldtypes, 'utf8', function(err, data) {
         if (err) {
             throw err;
         }
         var objects = JSON.parse(data);
-        db.collection('kaboodlefieldtypes', function(err, collection) {
+        db.collection('ogcFieldTypes', function(err, collection) {
             if (err) {
                 throw err;
             }
@@ -90,13 +90,13 @@ var populateBaseProperties = function() {
         });
     });
 
-    var kaboodletags = 'kaboodletags.json';
-    fs.readFile(kaboodletags, 'utf8', function(err, data) {
+    var ogctags = 'ogcTags.json';
+    fs.readFile(ogctags, 'utf8', function(err, data) {
         if (err) {
             throw err;
         }
         var objects = JSON.parse(data);
-        db.collection('kaboodletags', function(err,collection) {
+        db.collection('ogcTags', function(err,collection) {
             if (err) {
                 throw err;
             }
