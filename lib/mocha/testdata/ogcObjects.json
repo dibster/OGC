@@ -239,13 +239,5 @@
             }
 
         ]
-    },
-    {
-        "name" : "Will be deleted",
-        "description": "Record to be deleted ...",
-        "type" : "Lookup",
-        "template" : true
     }
-
-
 ]
