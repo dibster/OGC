@@ -5,6 +5,9 @@ angular.module('ogcApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
+    },{
+      'title': 'Configuration',
+      'link': '/config'
     }];
     
     $scope.isActive = function(route) {

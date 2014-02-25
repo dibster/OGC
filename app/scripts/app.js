@@ -8,10 +8,14 @@ angular.module('ogcApp', [
 ])
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/', {
-        templateUrl: 'partials/main',
-        controller: 'MainCtrl'
-      })
+        .when('/', {
+            templateUrl: 'partials/main',
+            controller: 'MainCtrl'
+        })
+        .when('/config', {
+            templateUrl: 'partials/config',
+            controller: 'ConfigCtrl'
+        })
       .otherwise({
         redirectTo: '/'
       });
