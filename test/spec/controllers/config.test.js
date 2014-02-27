@@ -23,5 +23,5 @@ describe('ConfigCtrl', function(){
         $httpBackend.flush();
         expect(scope.objects.length).toBe(2);
         expect(scope.types.length).toBe(2);
-    });
+      });
   });

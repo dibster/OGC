@@ -1,15 +1,40 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ConfigCtrl', function ($scope, config, objectTypes) {
+    .controller('ConfigCtrl', function ($scope, Objects, ObjectTypes) {
 
-        config.query(function(response) {
+        $scope.newObject = {};
+        $scope.object = {};
+
+        console.log('In controller');
+        
+        // get base admin object configuration data
+
+        Objects.query(function(response) {
             $scope.objects = response;
           });
 
-        objectTypes.query(function(response) {
+        ObjectTypes.query(function(response) {
             $scope.types = response;
-            console.log($scope.types);
           });
 
+        // create a new Object
+        
+        $scope.create = function() {
+
+            var object = new Objects({
+                name: $scope.newObject.name,
+                type: $scope.search.type,
+                template : false
+              });
+
+            $scope.data.object = object.$save(function(response) {
+                return response;
+              }).then(function(response){
+                $scope.object = response;
+                $scope.objects.push($scope.object);
+              }).then(function() {
+                $scope.newObject.name = '';
+              });
+          };
       });
