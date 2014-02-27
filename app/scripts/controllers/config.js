@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ConfigCtrl', function ($scope, $http, config, objectTypes) {
+    .controller('ConfigCtrl', function ($scope, config, objectTypes) {
 
         config.query(function(response) {
             $scope.objects = response;

@@ -12,7 +12,8 @@
   "newcap": true,
   "noarg": true,
   "quotmark": "single",
-  "regexp": true,
+
+  "expr" : true,
   "undef": true,
   "unused": false,
   "strict": true,
