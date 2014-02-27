@@ -6,9 +6,11 @@ angular.module('ogcApp')
       'title': 'Home',
       'link': '/'
     },{
-      'title': 'Configuration',
-      'link': '/config'
+      'title': 'Projects',
+      'link': '/projects'
     }];
+
+    $scope.configLink = '/config';
     
     $scope.isActive = function(route) {
       return route === $location.path();
