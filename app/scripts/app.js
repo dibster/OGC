@@ -9,11 +9,11 @@ angular.module('ogcApp', [
   .config(function ($routeProvider, $locationProvider) {
     $routeProvider
     .when('/', {
-      templateUrl: 'partials/main',
+      templateUrl: 'partials/main.html',
       controller: 'MainCtrl'
     })
     .when('/config', {
-        templateUrl: 'partials/config',
+        templateUrl: 'partials/config.html',
         controller: 'ConfigCtrl'
       })
      .when('/object/:id/edit', {
