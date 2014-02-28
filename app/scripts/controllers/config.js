@@ -20,19 +20,15 @@ angular.module('ogcApp')
         
         $scope.create = function() {
 
-            var object = new Objects({
+            $scope.object = new Objects({
                 name: $scope.newObject.name,
                 type: $scope.search.type,
                 template : false
               });
-
-            $scope.data.object = object.$save(function(response) {
+            $scope.objects.push($scope.object);
+            $scope.newObject.name = '';
+            $scope.object = $scope.object.$save(function(response) {
                 return response;
-              }).then(function(response){
-                $scope.object = response;
-                $scope.objects.push($scope.object);
-              }).then(function() {
-                $scope.newObject.name = '';
               });
           };
       });
