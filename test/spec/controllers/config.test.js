@@ -24,4 +24,5 @@ describe('ConfigCtrl', function(){
         expect(scope.objects.length).toBe(2);
         expect(scope.types.length).toBe(2);
       });
+
   });

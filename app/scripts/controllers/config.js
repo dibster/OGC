@@ -6,8 +6,6 @@ angular.module('ogcApp')
         $scope.newObject = {};
         $scope.object = {};
 
-        console.log('In controller');
-        
         // get base admin object configuration data
 
         Objects.query(function(response) {
