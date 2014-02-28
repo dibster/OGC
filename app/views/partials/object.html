@@ -1,4 +1,4 @@
-<div ng-include="'partials/navbar'"></div>
+<div data-ng-include="'partials/navbar'"></div>
 
 <div class="col-md-12" data-ng-init="focusInput=true">
     <!--<button class="btn" >show form and focus input</button>-->
@@ -22,13 +22,13 @@
             </td>
             <td>
                 <label class="sr-only" for="fieldType" >Select Type</label>
-                <select required class="pull-left" id="fieldType" ng-model="newfield.type">
+                <select required class="pull-left" id="fieldType" data-ng-model="newfield.type">
                     <option data-ng-repeat="fieldtype in data.fieldtypes">{{fieldtype.name}}</option>
                 </select>
             </td>
             <td>
                 <label class="sr-only" for="fieldRequired" >Required</label>
-                <select required class="pull-left" id="fieldRequired" ng-model="newfield.req">
+                <select required class="pull-left" id="fieldRequired" data-ng-model="newfield.req">
                     <option selected>n</option>
                     <option>y</option>
                 </select>
@@ -38,7 +38,7 @@
             </td>
         </tr>
         <tr data-ng-repeat="column in object.fields" data-ng-model="object.fields">
-            <td><a ng-click="openFieldModal($index)">{{column.name}}</a></td>
+            <td><a data-ng-click="openFieldModal($index)">{{column.name}}</a></td>
             <td>{{column.type}}</td>
             <td class="" data-ng-show="column.req == 'y'">{{column.req}}</td>
             <td data-ng-show="column.req == 'n'"></td>

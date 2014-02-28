@@ -1,4 +1,4 @@
-<div ng-include="'partials/navbar'"></div>
+<div data-ng-include="'partials/navbar'"></div>
 
 <div class="row">
     <div class="col-md-10">
@@ -31,7 +31,7 @@
 
             </tr>
 
-            <tr ng-repeat="object in objects| filter:search:strict">
+            <tr data-ng-repeat="object in objects| filter:search:strict">
 
                 <td>
                     <a data-ng-href="#/objects/{{object._id}}/edit">{{object.name}}</a>
