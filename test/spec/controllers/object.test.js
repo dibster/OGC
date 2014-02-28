@@ -10,6 +10,8 @@ describe('ObjectCtrl', function(){
     beforeEach(inject(function($rootScope, $controller, _$httpBackend_){
         $httpBackend = _$httpBackend_;
         $httpBackend.when('GET', 'http://localhost:9000/api/admin/objects/5').respond({id: 1, name: 'Campaign'});
+        $httpBackend.when('GET', 'http://localhost:9000/api/admin/fieldtypes').respond([{id: 1, name: 'Text'}, {id:2, name: 'Date'}]);
+
         //create an empty scope
         scope = $rootScope.$new();
         // add route Parameters
@@ -30,4 +32,10 @@ describe('ObjectCtrl', function(){
         expect(scope.object.name).toBe('Campaign');
       });
 
-  });
+    it('should get all field types ', function(){
+        $httpBackend.flush();
+        expect(scope.fieldTypes.length).toBe(2);
+      });
+
+
+});

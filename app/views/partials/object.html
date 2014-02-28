@@ -18,17 +18,17 @@
         <tr>
             <td>
                 <label class="sr-only" for="newfieldname" >New Field</label>
-                <input type="text" required data-ng-model="newfield.name" class="form-control pull-left"  id="newfieldname" >
+                <input type="text" required data-ng-model="newField.name" class="form-control pull-left"  id="newfieldname" >
             </td>
             <td>
                 <label class="sr-only" for="fieldType" >Select Type</label>
-                <select required class="pull-left" id="fieldType" data-ng-model="newfield.type">
-                    <option data-ng-repeat="fieldtype in data.fieldtypes">{{fieldtype.name}}</option>
+                <select class="form-control"  id="fieldType" ng-model="newField.fieldType" autofocus>
+                    <option data-ng-repeat="fieldType in fieldTypes">{{fieldType.name}}</option>
                 </select>
             </td>
             <td>
                 <label class="sr-only" for="fieldRequired" >Required</label>
-                <select required class="pull-left" id="fieldRequired" data-ng-model="newfield.req">
+                <select required class="form-control" id="fieldRequired" data-ng-model="newfield.req">
                     <option selected>n</option>
                     <option>y</option>
                 </select>
@@ -48,5 +48,5 @@
 </div>
 
 <div class="footer">
-    <p>{{fields.length}} Fields Defined </p>
+    <p>{{object.fields.length}} Fields Defined </p>
 </div>

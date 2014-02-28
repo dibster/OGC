@@ -34,7 +34,7 @@
             <tr data-ng-repeat="object in objects| filter:search:strict">
 
                 <td>
-                    <a data-ng-href="#/objects/{{object._id}}/edit">{{object.name}}</a>
+                    <a data-ng-href="#/object/{{object._id}}/edit">{{object.name}}</a>
                 </td>
                 <td>{{object.type}}</td>
                 <td><span class="badge">{{object.fields.length}}</span></td>
