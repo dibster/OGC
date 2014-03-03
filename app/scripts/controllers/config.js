@@ -31,4 +31,11 @@ angular.module('ogcApp')
                 return response;
               });
           };
+
+        $scope.removeObject = function(object) {
+          var index = $scope.objects.indexOf(object);
+          $scope.objects.splice(index, 1);
+          object.$remove();
+        };
+
       });

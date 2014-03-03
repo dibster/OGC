@@ -40,7 +40,35 @@ angular.module('ogcApp')
 
           };
 
+        $scope.removeField = function(column) {
+
+            $scope.object._id = $routeParams.id;
+            var fieldIndex = $scope.object.fields.indexOf(column);
+            $scope.object.fields.splice(fieldIndex, 1);
+
+            // remove fields on views
+
+            for(var i=0; i< $scope.object.views.length; i++)
+            {
+                // get the array length
+              var arrayLength = $scope.object.views[i].fields.length;
+                // does the field exist
+              for (var index = 0; index < arrayLength; index++) {
+                if ($scope.object.views[i].fields[index].name === column.name) {
+                  $scope.object.views[i].fields.splice(index, 1);
+                  break;
+                }
+              }
+            }
+
+            $scope.object.$update(function(response) {
+                $scope.object = response;
+              });
+          };
+
+        //
         // Modal Window for field Edit
+        //
 
         $scope.openFieldModal = function (index) {
             var thisModalField= JSON.parse( JSON.stringify( $scope.object.fields[index]) );

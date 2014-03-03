@@ -41,7 +41,7 @@
             <td><a data-ng-click="openFieldModal($index)">{{column.name}}</a></td>
             <td>{{column.type}}</td>
             <td class="" data-ng-show="column.req == 'y'">{{column.req}}</td>
-            <td data-ng-show="column.req == 'n'"></td>
+            <td data-ng-show="column.req == 'n'">-</td>
             <td><button type="button"  class="btn pull-right" data-ng-click="removeField(column)"><i class="fa fa-trash-o"></i> Delete</button></td>
         </tr>
     </table>

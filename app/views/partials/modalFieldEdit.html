@@ -11,15 +11,15 @@
             <select required class="form-control" id="modalType" data-ng-model="modalField.type">
                 <option data-ng-repeat="fieldtype in fieldtypes">{{fieldtype.name}}</option>
             </select>
+            <span data-ng-show="modalField.type=='Choice'">
+                <label class="control-label" for="modalChoice">Choice Values</label>
+                <textarea rows="3" class="form-control" id="modalChoice" data-ng-model="modalField.choices"></textarea>
+            </span>
             <label class="control-label" for="modalRequired">Required</label>
             <select required ng-model="modalField.req"  id="modalRequired" class="form-control">
                 <option>n</option>
                 <option>y</option>
             </select>
-            <span data-ng-show="modalField.type=='Choice'">
-            <label class="control-label" for="modalChoice">Choice Values</label>
-            <textarea rows="3" class="form-control" id="modalChoice" data-ng-model="modalField.choices"></textarea>
-             </span>
 
             <label class="control-label" for="modalHelpContents">PopUp Help Contents</label>
             <textarea rows="3" class="form-control" id="modalHelpContents" data-ng-model="modalField.popupHelp"></textarea>
