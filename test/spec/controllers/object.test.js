@@ -9,8 +9,10 @@ describe('ObjectCtrl', function(){
     //mock the controller for the same reason and include $rootScope and $controller
     beforeEach(inject(function($rootScope, $controller, _$httpBackend_){
         $httpBackend = _$httpBackend_;
-        $httpBackend.when('GET', 'http://localhost:9000/api/admin/objects/5').respond({id: 1, name: 'Campaign'});
+        $httpBackend.when('GET', 'http://localhost:9000/api/admin/objects/5').respond({id: 5, name: 'Campaign', fields : [{name : 'existing field', type : 'Date', req : 'n'}]});
         $httpBackend.when('GET', 'http://localhost:9000/api/admin/fieldtypes').respond([{id: 1, name: 'Text'}, {id:2, name: 'Date'}]);
+        $httpBackend.when('PUT', 'http://localhost:9000/api/admin/objects').respond({id: 5, name: 'Campaign',fields : [{name : 'field1'}]});
+        $httpBackend.when('PUT', 'http://localhost:9000/api/admin/objects/5').respond({id: 5, name: 'Campaign',fields : [{name : 'field1'}]});
 
         //create an empty scope
         scope = $rootScope.$new();
@@ -37,5 +39,11 @@ describe('ObjectCtrl', function(){
         expect(scope.fieldTypes.length).toBe(2);
       });
 
+    it('Add a new Field to the Object', function(){
+        $httpBackend.flush();
+        var newField = {name : 'new field', type : 'Date', req : 'n'};
+        scope.addField(newField);
+        expect(scope.object.fields.length).toBe(2);
+      });
 
-});
+  });

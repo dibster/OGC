@@ -4,6 +4,7 @@ angular.module('ogcApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
+  'ui.bootstrap',
   'ngRoute'
 ])
   .config(function ($routeProvider, $locationProvider) {
