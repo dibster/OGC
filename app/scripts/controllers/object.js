@@ -5,6 +5,7 @@ angular.module('ogcApp')
 
         $scope.object = {};
         $scope.fieldTypes = {};
+        $scope.objects = [];
 
         Objects.get({id : $routeParams.id},function(object) {
             $scope.object = object;
@@ -13,6 +14,11 @@ angular.module('ogcApp')
         ObjectFieldTypes.query(function(fieldtypes) {
             $scope.fieldTypes = fieldtypes;
           });
+
+        Objects.query(function(objects) {
+            $scope.objects = objects;
+        });
+
 
         $scope.addField = function(addnewfield) {
 
@@ -42,6 +48,10 @@ angular.module('ogcApp')
 
         $scope.removeField = function(column) {
 
+            Objects.get({id : $routeParams.id},function(object) {
+                $scope.object = object;
+              });
+
             $scope.object._id = $routeParams.id;
             var fieldIndex = $scope.object.fields.indexOf(column);
             $scope.object.fields.splice(fieldIndex, 1);
@@ -65,6 +75,23 @@ angular.module('ogcApp')
                 $scope.object = response;
               });
           };
+
+        $scope.copySelectedObject = function(selectedItem) {
+
+            Objects.get({id : $routeParams.id},function(object) {
+                $scope.object = object;
+            });
+
+            $scope.object.fields = selectedItem.fields;
+            $scope.objectId = $routeParams.id;
+            $scope.object.views = selectedItem.views;
+
+            $scope.object.$update(function(response) {
+                $scope.object = response;
+              });
+          };
+
+
 
         //
         // Modal Window for field Edit

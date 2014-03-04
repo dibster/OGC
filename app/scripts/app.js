@@ -21,6 +21,10 @@ angular.module('ogcApp', [
         templateUrl: 'partials/object.html',
         controller: 'ObjectCtrl'
       })
+     .when('/object/:id/views', {
+        templateUrl: 'partials/objectViews.html',
+        controller: 'ObjectViewsCtrl'
+      })
     .otherwise({
         redirectTo: '/'
       });

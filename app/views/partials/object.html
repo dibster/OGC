@@ -1,5 +1,26 @@
 <div data-ng-include="'partials/navbar'"></div>
 
+<div class="col-md-12">
+    <div class="col-md-10">
+        <h4 class="pull-left">{{object.name}}</h4>
+    </div>
+    <div class="col-md-1">
+        <div class="dropdown">
+
+            <button type="button" class="btn btn-link dropdown-toggle"><i class="fa fa-files-o"></i> Copy</button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="copyobject in objects">
+                    <a data-ng-click="copySelectedObject(copyobject);focusInput=true">{{copyobject.name}} ({{copyobject.fields.length}} fields)</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-1">
+        <a data-ng-href="#/object/{{object._id}}/views" class="btn"><i class="fa fa-list-ul"></i> Views</a>
+    </div>
+</div>
+
+
 <div class="col-md-12" data-ng-init="focusInput=true">
     <!--<button class="btn" >show form and focus input</button>-->
     <table class="table">
@@ -10,7 +31,7 @@
 
             <th style="width: 15%">
                 <div class="pull-right">
-                    Action
+
                 </div>
             </th>
         </tr>
