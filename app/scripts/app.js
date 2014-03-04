@@ -5,6 +5,7 @@ angular.module('ogcApp', [
   'ngResource',
   'ngSanitize',
   'ui.bootstrap',
+  'ui.sortable',
   'ngRoute'
 ])
   .config(function ($routeProvider, $locationProvider) {
