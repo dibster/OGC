@@ -22,7 +22,7 @@
             </div>
             <div class="panel-body">
                 <ul data-ng-update = "updateCreateView()" class="list-unstyled" ui-sortable="sortableOptionsCreate" ng-model="createview">
-                    <li data-ng-repeat="item in view.fields">{{item.name}}<span class="pull-right"><i class="fa fa-trash-o" data-ng-click="removeViewField(item,'0')"></i></span></li>
+                    <li data-ng-repeat="item in view.fields">{{item.name}}<span class="pull-right"><i class="fa fa-trash-o" data-ng-click="removeViewField($parent.$index,$index)"></i></span></li>
                 </ul>
             </div>
         </div>

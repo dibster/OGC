@@ -34,4 +34,12 @@ angular.module('ogcApp')
               $scope.object = response;
             });
           };
+
+        $scope.removeViewField = function(viewnumber,viewcolumnid) {
+            $scope.object._id = $routeParams.id;
+            $scope.object.views[viewnumber].fields.splice(viewcolumnid, 1);
+            $scope.object.$update(function(response) {
+                $scope.object = response;
+              });
+          };
       });
