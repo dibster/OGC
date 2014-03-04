@@ -58,7 +58,6 @@ describe('ObjectCtrl', function(){
         $httpBackend.flush();
         var copyObject  = {id: 3, name: 'Copy Campaign', fields : [{name : 'copied field', type : 'Date', req : 'n'}], views : [{name : 'create', fields : [{name : 'title'}] }]};
         scope.copySelectedObject(copyObject);
-        console.log(JSON.stringify(scope.object.fields[0].name));
         expect(scope.object.fields[0].name).toBe('copied field');
       });
 

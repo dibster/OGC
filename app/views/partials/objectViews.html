@@ -1,6 +1,33 @@
 <div data-ng-include="'partials/navbar'"></div>
 
-<h2>View Management</h2>
+<div class="col-md-12">
+    <p></p>
+    <div class="col-md-2">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                Available Fields
+            </div>
+            <div class="panel-body">
+                <ul class="list-unstyled"  ng-model="objectFields">
+                    <li data-ng-repeat="field in object.fields">{{ item }}<span class="pull-right" data-ng-click="addFieldToViews(field)"><i class="fa fa-arrow-circle-right"></i></span>{{field.name}}</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-2" data-ng-repeat="view in object.views">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                {{view.name}}
+            </div>
+            <div class="panel-body">
+                <ul data-ng-update = "updateCreateView()" class="list-unstyled" ui-sortable="sortableOptionsCreate" ng-model="createview">
+                    <li data-ng-repeat="item in view.fields">{{item.name}}<span class="pull-right"><i class="fa fa-trash-o" data-ng-click="removeViewField(item,'0')"></i></span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 
 <div class="footer">
