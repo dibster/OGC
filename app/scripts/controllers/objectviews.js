@@ -45,19 +45,14 @@ angular.module('ogcApp')
 
         // sorting (drag drop)
 
-        $scope.sortingLog = [];
-
         $scope.sortableOptionsCreate = {
             // called after a node is dropped
             stop: function(e, ui) {
-                var logEntry = {
-                    ID: $scope.sortingLog.length + 1,
-                    Text: 'Moved element: ' + ui.item.scope().item.text
-                  };
-                $scope.sortingLog.push(logEntry);
-                $scope.object.views[0].fields = $scope.createview;
+                $scope.object._id = $routeParams.id;
+                $scope.object.views[ui.item.scope().viewIndex].fields = ui.item.scope().view.fields;
                 $scope.object.$update(function(response) {
-                });
+                    $scope.object = response;
+                  });
               }
           };
 
