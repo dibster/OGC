@@ -6,6 +6,7 @@ angular.module('ogcApp')
         $scope.object = {};
         $scope.fieldTypes = {};
         $scope.objects = [];
+        $scope.currentObjectId = $routeParams.id;
 
         Objects.get({id : $routeParams.id},function(object) {
             $scope.object = object;
