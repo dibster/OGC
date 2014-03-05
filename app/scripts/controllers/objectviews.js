@@ -3,6 +3,10 @@
 angular.module('ogcApp')
     .controller('ObjectViewsCtrl', function ($scope, $routeParams, Objects) {
 
+        $scope.alerts = [
+            { type: 'success', msg: 'Add fields to views from Available fields, drag fields in views to change the order' }
+        ];
+
         $scope.object = {};
 
         Objects.get({id : $routeParams.id},function(object) {
