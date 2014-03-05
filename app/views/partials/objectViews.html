@@ -21,7 +21,7 @@
                 {{view.name}} {{viewIndex}}
             </div>
             <div class="panel-body">
-                <ul class="list-unstyled" ui-sortable="sortableOptionsCreate" data-ng-model="view.fields">
+                <ul class="list-unstyled" ui-sortable="dragDropUpdate" data-ng-model="view.fields">
                     <li data-ng-repeat="item in view.fields">{{item.name}}<span class="pull-right"><i class="fa fa-trash-o" data-ng-click="removeViewField($parent.$index,$index)"></i></span></li>
                 </ul>
             </div>

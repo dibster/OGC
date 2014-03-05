@@ -45,7 +45,7 @@ angular.module('ogcApp')
 
         // sorting (drag drop)
 
-        $scope.sortableOptionsCreate = {
+        $scope.dragDropUpdate = {
             // called after a node is dropped
             stop: function(e, ui) {
                 $scope.object._id = $routeParams.id;
