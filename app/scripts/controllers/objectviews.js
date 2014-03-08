@@ -4,8 +4,8 @@ angular.module('ogcApp')
     .controller('ObjectViewsCtrl', function ($scope, $routeParams, Objects) {
 
         $scope.alerts = [
-            { type: 'success', msg: 'Add fields to views from Available fields, drag fields in views to change the order' }
-        ];
+            { type: 'success', msg: 'Add fields to views from Available fields, drag fields in views to change the order'}
+          ];
 
         $scope.object = {};
 
@@ -13,7 +13,7 @@ angular.module('ogcApp')
             $scope.object = object;
           });
 
-        $scope.addFieldToViews = function(selectedItem) {
+        $scope.addFieldToViews = function(selectedField) {
 
             $scope.object._id = $routeParams.id;
             // iterate through all views
@@ -24,13 +24,13 @@ angular.module('ogcApp')
               var arrayLength = $scope.object.views[i].fields.length;
               // does the field exist
               for (var index = 0; index < arrayLength; ++index) {
-                if ($scope.object.views[i].fields[index].name === selectedItem.name) {
+                if ($scope.object.views[i].fields[index].name === selectedField.name) {
                   fieldExists = true;
                   break;
                 }
               }
               if (!fieldExists) {
-                $scope.object.views[i].fields.push(selectedItem);
+                $scope.object.views[i].fields.push(selectedField);
               }
             }
 
@@ -39,9 +39,9 @@ angular.module('ogcApp')
             });
           };
 
-        $scope.removeViewField = function(viewnumber,viewcolumnid) {
+        $scope.removeViewField = function(viewNumber,viewCOlumnId) {
             $scope.object._id = $routeParams.id;
-            $scope.object.views[viewnumber].fields.splice(viewcolumnid, 1);
+            $scope.object.views[viewNumber].fields.splice(viewCOlumnId, 1);
             $scope.object.$update(function(response) {
                 $scope.object = response;
               });

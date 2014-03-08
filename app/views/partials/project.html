@@ -1,0 +1,29 @@
+<div data-ng-include="'partials/navbar'"></div>
+<!-- Action Buttons -->
+<div class="row">
+    <div class="col-md-12">
+        <div class="dropdown pull-left">
+            <button type="button" class="btn dropdown-toggle btn-default"><i class="fa fa-plus"></i> New</button>
+            <ul class="dropdown-menu">
+                <li ng-repeat="type in projectTypes">
+                    <a ng-click="openCreateProjectModal(type)">{{type.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="col-md-4">
+            <!--<abn-tree tree-data="myData" icon-leaf="icon-file" on-select="my_tree_handler(branch)" expand-level="1" initial-selection="Languages"></abn-tree>-->
+        </div>
+        <div class="col-md-8">
+            This will be the project list data
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <p>{{projects.length}} Projects </p>
+</div>

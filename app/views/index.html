@@ -14,12 +14,13 @@
     <!-- build:css(app) styles/vendor.css -->
     <!-- bower:css -->
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
-    <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
     <!-- endbower -->
     <!-- endbuild -->
     <!-- build:css({.tmp,app}) styles/main.css -->
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
+      <link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+      <link rel="stylesheet" href="bower_components/angular-bootstrap-nav-tree-master/dist/abn_tree.css" />
   </head>
   <body ng-app="ogcApp">
     <!--[if lt IE 7]>
@@ -48,16 +49,15 @@
     <!-- build:js(app) scripts/vendor.js -->
     <!-- bower:js -->
     <script src="bower_components/jquery/jquery.js"></script>
-    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/jquery-ui/ui/jquery-ui.js"></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="bower_components/lodash/dist/lodash.compat.js"></script>
     <script src="bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
     <script src="bower_components/angular-resource/angular-resource.js"></script>
     <script src="bower_components/angular-cookies/angular-cookies.js"></script>
     <script src="bower_components/angular-sanitize/angular-sanitize.js"></script>
     <script src="bower_components/angular-route/angular-route.js"></script>
-    <script src="bower_components/lodash/dist/lodash.js"></script>
-    <script src="bower_components/ui-sortable-master/src/sortable.js"></script>
     <!-- endbower -->
     <!-- endbuild -->
 
@@ -69,6 +69,12 @@
         <script src="scripts/services/ogcService.js"></script>
         <script src="scripts/controllers/object.js"></script>
         <script src="scripts/controllers/objectviews.js"></script>
+        <script src="scripts/controllers/project.js"></script>
         <!-- endbuild -->
-</body>
+
+    <script src="bower_components/ui-sortable-master/src/sortable.js"></script>
+    <script src="bower_components/angular-bootstrap-nav-tree-master/dist/abn_tree_directive.js"></script>
+    <!--<script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.3/angular-animate.min.js"></script>-->
+
+  </body>
 </html>

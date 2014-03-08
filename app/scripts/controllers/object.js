@@ -18,10 +18,10 @@ angular.module('ogcApp')
 
         Objects.query(function(objects) {
             $scope.objects = objects;
-        });
+          });
 
 
-        $scope.addField = function(addnewfield) {
+        $scope.addField = function(addNewField) {
 
             Objects.get({id : $routeParams.id},function(object) {
                 $scope.object = object;
@@ -29,10 +29,10 @@ angular.module('ogcApp')
 
             if (!(_.has($scope.object, 'fields')))
             {
-              $scope.object.fields = [addnewfield];
+              $scope.object.fields = [addNewField];
             }
             else {
-              $scope.object.fields.push(addnewfield);
+              $scope.object.fields.push(addNewField);
             }
 
             // TODO object id is being lost 2nd time through the controller, so resetting it here until fixed
@@ -81,7 +81,7 @@ angular.module('ogcApp')
 
             Objects.get({id : $routeParams.id},function(object) {
                 $scope.object = object;
-            });
+              });
 
             $scope.object.fields = selectedItem.fields;
             $scope.objectId = $routeParams.id;

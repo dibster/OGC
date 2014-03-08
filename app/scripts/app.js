@@ -18,6 +18,10 @@ angular.module('ogcApp', [
         templateUrl: 'partials/config.html',
         controller: 'ConfigCtrl'
       })
+    .when('/project', {
+        templateUrl: 'partials/project.html',
+        controller: 'ProjectCtrl'
+      })
      .when('/object/:id/edit', {
         templateUrl: 'partials/object.html',
         controller: 'ObjectCtrl'

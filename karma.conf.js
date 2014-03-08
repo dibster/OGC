@@ -19,6 +19,8 @@ module.exports = function(config) {
       'app/bower_components/angular-route/angular-route.js',
       'app/bower_components/angular-bootstrap/ui-bootstrap.js',
       'app/bower_components/lodash/dist/lodash.js',
+      'app/bower_components/ui-sortable-master/src/sortable.js',
+//      'app/bower_components/angular-bootstrap-nav-tree-master/dist/abn_tree_directive.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
