@@ -26,7 +26,7 @@
         <div class="col-md-2">
         <ul class="list-group">
                     <li data-ng-repeat="type in projectTypes" class="list-group-item">
-                        <a data-ng-href="#/object/{{object._id}}/edit">{{type.name}}</a>
+                        <a data-ng-click="listProjects(type)">{{type.name}}</a>
                     </li>
         </ul>
         </div>

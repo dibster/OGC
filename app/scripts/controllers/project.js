@@ -2,7 +2,6 @@
 
 angular.module('ogcApp')
     .controller('ProjectCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags) {
-
         $scope.projectInstances = [{}];
 
         $scope.selectedType = '';
@@ -10,6 +9,10 @@ angular.module('ogcApp')
         ProjectTypes.query(function(response) {
             $scope.projectTypes = response;
           });
+
+        $scope.listProjects = function(type) {
+            console.log('show all projects for type ' + type.name);
+          };
 
         // project tree build.
         //        $scope.myData = [{
