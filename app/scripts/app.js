@@ -5,6 +5,7 @@ angular.module('ogcApp', [
   'ngResource',
   'ngSanitize',
   'ui.bootstrap',
+  'ngGrid',
   'ui.sortable',
   'ngRoute'
 ])

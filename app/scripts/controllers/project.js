@@ -13,7 +13,15 @@ angular.module('ogcApp')
         $scope.listProjects = function(type) {
             console.log('show all projects for type ' + type.name);
           };
-
+        
+        $scope.myData = [{name: 'Moroni', age: 50},
+            {name: 'Tiancum', age: 43},
+            {name: 'Jacob', age: 27},
+            {name: 'Nephi', age: 29},
+            {name: 'Enos', age: 34}];
+        
+        $scope.gridOptions = { data: 'myData' };
+        
         // project tree build.
         //        $scope.myData = [{
         //            label: 'Languages',

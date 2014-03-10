@@ -11,6 +11,7 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
+      'app/bower_components/jquery/jquery.js',
       'app/bower_components/angular/angular.js',
       'app/bower_components/angular-mocks/angular-mocks.js',
       'app/bower_components/angular-resource/angular-resource.js',
@@ -20,7 +21,7 @@ module.exports = function(config) {
       'app/bower_components/angular-bootstrap/ui-bootstrap.js',
       'app/bower_components/lodash/dist/lodash.js',
       'app/bower_components/ui-sortable-master/src/sortable.js',
-//      'app/bower_components/angular-bootstrap-nav-tree-master/dist/abn_tree_directive.js',
+      'app/bower_components/angular-ui-ng-grid-c976fc6/ng-grid-2.0.7.min.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
