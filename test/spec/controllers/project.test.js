@@ -9,7 +9,7 @@ describe('ProjectCtrl', function(){
     //mock the controller for the same reason and include $rootScope and $controller
     beforeEach(inject(function($rootScope, $controller, _$httpBackend_){
         $httpBackend = _$httpBackend_;
-        $httpBackend.when('GET', 'http://localhost:9000/api/admin/objecttypes').respond([{id: 1, name: 'Project'}, {id:2, name: 'List'}]);
+        $httpBackend.when('GET', 'http://localhost:9000/api/projects/types').respond([{name: 'Project'}, {name: 'Campaign'}]);
 
         //create an empty scope
         scope = $rootScope.$new();
@@ -26,7 +26,7 @@ describe('ProjectCtrl', function(){
 
     // tests start here
 
-    it('should get 2 project types', function(){
+    it('should get 1 project type', function(){
         $httpBackend.flush();
         expect(scope.projectTypes.length).toBe(2);
       });

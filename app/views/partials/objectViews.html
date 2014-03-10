@@ -1,10 +1,14 @@
 <div data-ng-include="'partials/navbar'"></div>
 
 <div data-ng-include="'partials/alerts'"></div>
-
-
+<div class="row">
 <div class="col-md-12">
-        <h4 class="pull-left">{{object.name}}</h4>
+        <ol class="breadcrumb">
+            <li><a href="#/config">Config</a></li>
+            <li><a href="#/object/{{objectRoute}}/edit">{{object.name}}</a></li>
+            <li class="active">Views</li>
+        </ol>
+</div>
 </div>
 
 

@@ -10,7 +10,11 @@ angular.module('ogcApp')
 
     .factory('ObjectTypes', function($resource){
         return $resource(url + 'api/admin/objecttypes', {});
-      })
+    })
+
+    .factory('ProjectTypes', function($resource){
+        return $resource(url + 'api/projects/types', {});
+    })
 
     .factory('Projects', function($resource){
         return $resource(url + 'api/projects/:id', {id:'@_id'}, {update:{method: 'PUT'}});
