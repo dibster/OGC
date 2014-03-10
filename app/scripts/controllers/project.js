@@ -1,9 +1,11 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ProjectCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, Projects, hashTags) {
+    .controller('ProjectCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags) {
 
         $scope.projectInstances = [{}];
+
+        $scope.selectedType = '';
 
         ProjectTypes.query(function(response) {
             $scope.projectTypes = response;
