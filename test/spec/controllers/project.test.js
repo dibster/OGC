@@ -18,11 +18,11 @@ describe('ProjectCtrl', function(){
         routeParams.id = 5;
         //declare the controller and inject our empty scope
         $controller('ProjectCtrl', {$scope: scope, $routeParams : routeParams, $modal : modal, $log : log} );
-    }));
+      }));
 
     afterEach(inject(function($rootScope) {
         $rootScope.$apply();
-    }));
+      }));
 
     // tests start here
 

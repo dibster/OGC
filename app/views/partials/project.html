@@ -19,7 +19,7 @@
         <div class="col-md-2">
             <ul class="list-group">
                 <li data-ng-repeat="type in projectTypes" class="list-group-item">
-                    <a data-ng-click="listProjects(type)">{{type.name}}</a>
+                    <a data-ng-click="filterByProjectType(type.name)">{{type.name}}</a>
                 </li>
             </ul>
         </div>

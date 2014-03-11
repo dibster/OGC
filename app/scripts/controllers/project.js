@@ -9,6 +9,10 @@ angular.module('ogcApp')
             $scope.projectTypes = response;
           });
 
+        Projects.query(function(response) {
+            $scope.projects = response;
+          });
+
         // Set the table properties
 
         // pagination
@@ -21,10 +25,18 @@ angular.module('ogcApp')
             {label: 'Title', map: 'Title'}
           ];
 
-        // get the project Data
-        Projects.query({pt: 'item1'},function(response) {
-            $scope.projects = response;
-          });
+        $scope.filterByProjectType = function(objectType) {
+            var searchObject = {};
+            searchObject.Type = objectType;
+            var searchString = encodeURIComponent(JSON.stringify(searchObject));
+
+            // get the project Data
+            Projects.query({filter : searchString},function(response) {
+                $scope.projects = response;
+              });
+          };
+
+
 
         // Modal New Project Form
         $scope.saveFormDetails = function(formData) {
