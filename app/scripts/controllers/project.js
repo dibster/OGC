@@ -2,7 +2,6 @@
 
 angular.module('ogcApp')
     .controller('ProjectCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags) {
-        $scope.projectInstances = [{}];
 
         $scope.selectedType = '';
 
@@ -10,30 +9,30 @@ angular.module('ogcApp')
             $scope.projectTypes = response;
           });
 
-        $scope.listProjects = function(type) {
-            console.log('show all projects for type ' + type.name);
-          };
-        
-        $scope.myData = [{name: 'Moroni', age: 50},
-            {name: 'Tiancum', age: 43},
-            {name: 'Jacob', age: 27},
-            {name: 'Nephi', age: 29},
-            {name: 'Enos', age: 34}];
-        
-        $scope.gridOptions = { data: 'myData' };
-        
-        // project tree build.
-        //        $scope.myData = [{
-        //            label: 'Languages',
-        //            children: ['Jade','Less','CoffeeScript']
-        //          }];
+        // Set the table properties
 
+        // pagination
+        $scope.globalConfig = {
+            isPaginationEnabled: false
+          };
+
+        // Columns
+        $scope.columnCollection = [
+            {label: 'Title', map: 'Title'}
+          ];
+
+        // get the project Data
+        Projects.query(function(response) {
+            $scope.projects = response;
+          });
+
+        // Modal New Project Form
         $scope.saveFormDetails = function(formData) {
             var myRecord = PrepareRecord.getRecord(formData,$scope.selectedType);
             var ogcProject = new Projects(myRecord);
 
             $scope.project = ogcProject.$save(function(response) {
-                $scope.projectInstances.push(response);
+                $scope.projects.push(response);
                 //                return response;
               });
           };

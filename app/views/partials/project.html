@@ -2,14 +2,6 @@
 <!-- Action Buttons -->
 <div class="row">
     <div class="col-md-12">
-        <!--<div class="dropdown">-->
-            <!--<button type="button" class="btn dropdown-toggle btn-default"><i class="fa fa-plus"></i> New</button>-->
-            <!--<ul class="dropdown-menu">-->
-                <!--<li ng-repeat="type in projectTypes">-->
-                    <!--<a ng-click="openCreateProjectModal(type)">{{type.name}}</a>-->
-                <!--</li>-->
-            <!--</ul>-->
-        <!--</div>-->
         <div class="dropdown  pull-right">
             <button type="button" class="btn btn-link dropdown-toggle"><i class="fa fa-files-o"></i> New</button>
             <ul class="dropdown-menu">
@@ -32,10 +24,10 @@
             </ul>
         </div>
         <div class="col-md-10">
-            <div class="gridStyle" ng-grid="gridOptions">
-            </div>
+               <smart-table class="table" config="globalConfig" columns="columnCollection" rows="projects"></smart-table>
         </div>
     </div>
+
 </div>
 
 <div class="footer">

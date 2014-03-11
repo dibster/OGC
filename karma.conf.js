@@ -21,7 +21,7 @@ module.exports = function(config) {
       'app/bower_components/angular-bootstrap/ui-bootstrap.js',
       'app/bower_components/lodash/dist/lodash.js',
       'app/bower_components/ui-sortable-master/src/sortable.js',
-      'app/bower_components/angular-ui-ng-grid-c976fc6/ng-grid-2.0.7.min.js',
+      'app/bower_components/Smart-Table-master/Smart-Table.min.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'test/mock/**/*.js',
