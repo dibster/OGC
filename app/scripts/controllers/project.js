@@ -22,7 +22,7 @@ angular.module('ogcApp')
           ];
 
         // get the project Data
-        Projects.query(function(response) {
+        Projects.query({pt: 'item1'},function(response) {
             $scope.projects = response;
           });
 
