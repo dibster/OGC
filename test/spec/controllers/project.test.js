@@ -10,6 +10,7 @@ describe('ProjectCtrl', function(){
     beforeEach(inject(function($rootScope, $controller, _$httpBackend_){
         $httpBackend = _$httpBackend_;
         $httpBackend.when('GET', 'http://localhost:9000/api/projects/types').respond([{name: 'Project'}, {name: 'Campaign'}]);
+        $httpBackend.when('GET', 'http://localhost:9000/api/projects').respond([{name: 'Project 1'}, {name: 'Campaign 1'}]);
 
         //create an empty scope
         scope = $rootScope.$new();
