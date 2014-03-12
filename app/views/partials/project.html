@@ -24,7 +24,26 @@
             </ul>
         </div>
         <div class="col-md-10">
-               <smart-table class="table" config="globalConfig" columns="columnCollection" rows="projects"></smart-table>
+            <table ng-table="tableParams" class="table">
+                <thead>
+                <tr>
+                    <th data-ng-repeat="column in columnCollection">
+                        <div class="text-left">
+                        {{column.name}}
+                        </div>
+                    </th>
+                </tr>
+                </thead>
+                <tr ng-repeat="project in projects">
+                    <td ng-repeat="column in columnCollection"  sortable="column.name">
+                        <span data-ng-show="$index !=0 && column.type != 'Date'">{{project[column.name]}}</span>
+                        <span data-ng-show="$index !=0 && column.type == 'Date'" am-time-ago="project[column.name]"></span>
+                        <span data-ng-show="$index ==0"><a data-ng-href="#/project/{{project._id}}">{{project[column.name]}}</a></span>
+                    </td>
+                </tr>
+
+            </table>
+
         </div>
     </div>
 

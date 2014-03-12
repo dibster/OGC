@@ -9,15 +9,20 @@
     "jquery-ui": "~1.10.2",
     "bootstrap": "~3.0.3",
     "font-awesome": "*",
+    "angular-moment": "*",
     "lodash": "~2.4.1",
     "angular-bootstrap": "0.10.0",
     "angular-resource": "1.2.10",
     "angular-cookies": "1.2.10",
     "angular-sanitize": "1.2.10",
-    "angular-route": "1.2.10"
+    "angular-route": "1.2.10",
+    "ng-table": "*"
   },
   "devDependencies": {
     "angular-mocks": "1.2.10",
     "angular-scenario": "1.2.10"
+  },
+  "resolutions": {
+    "angular": "1.2.10"
   }
 }

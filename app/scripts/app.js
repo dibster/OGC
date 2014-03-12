@@ -5,8 +5,9 @@ angular.module('ogcApp', [
   'ngResource',
   'ngSanitize',
   'ui.bootstrap',
-  'smartTable.table',
+  'ngTable',
   'ui.sortable',
+  'angularMoment',
   'ngRoute'
 ])
   .config(function ($routeProvider, $locationProvider) {

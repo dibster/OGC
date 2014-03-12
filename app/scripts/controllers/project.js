@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ProjectCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags) {
+    .controller('ProjectCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
+
+        $scope.projects = [{}];
 
         $scope.selectedType = '';
 
@@ -14,25 +16,24 @@ angular.module('ogcApp')
           });
 
         // Set the table properties
-
-        // pagination
-        $scope.globalConfig = {
-            isPaginationEnabled: false
-          };
-
-        // Columns
-
+        /*jshint -W055 */
+        $scope.tableParams = new ngTableParams({
+            page: 1,            // show first page
+            count: 50           // count per page
+          }, {
+            counts: [], // hide page counts control
+            total: $scope.projects.length, // length of data
+            getData: function($defer, params) {
+                $defer.resolve($scope.projects);
+              }
+          });
+        /*jshint +W055 */
 
         $scope.filterByProjectType = function(objectType) {
 
             // Set the column Collection
 
-            $scope.columnCollection = _.map(objectType.views[3].fields, function (item) {
-                var newItemObject = {};
-                newItemObject.label =  item.name;
-                newItemObject.map = item.name;
-                return newItemObject;
-              });
+            $scope.columnCollection = objectType.views[3].fields;
 
             var searchObject = {};
             searchObject.Type = objectType.name;
@@ -42,6 +43,7 @@ angular.module('ogcApp')
             Projects.query({filter : searchString},function(response) {
                 $scope.projects = response;
               });
+
           };
 
 
