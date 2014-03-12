@@ -21,13 +21,21 @@ angular.module('ogcApp')
           };
 
         // Columns
-        $scope.columnCollection = [
-            {label: 'Title', map: 'Title'}
-          ];
+
 
         $scope.filterByProjectType = function(objectType) {
+
+            // Set the column Collection
+
+            $scope.columnCollection = _.map(objectType.views[3].fields, function (item) {
+                var newItemObject = {};
+                newItemObject.label =  item.name;
+                newItemObject.map = item.name;
+                return newItemObject;
+              });
+
             var searchObject = {};
-            searchObject.Type = objectType;
+            searchObject.Type = objectType.name;
             var searchString = encodeURIComponent(JSON.stringify(searchObject));
 
             // get the project Data
