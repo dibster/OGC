@@ -9,7 +9,11 @@ angular.module('ogcApp')
                 project: '=project'
               },
               link: function LinkingFunction(scope) {
-                      scope.result = scope.calculation;
+                  try {
+                    scope.result = eval('scope.project.' + scope.calculation);
+                  } catch (e) {
+                      scope.result = '';
                     }
+                }
             };
       });
