@@ -15,8 +15,12 @@
                 <label class="control-label" for="modalChoice">Choice Values</label>
                 <textarea rows="3" class="form-control" id="modalChoice" data-ng-model="modalField.choices"></textarea>
             </span>
+            <span data-ng-show="modalField.type=='Calculated'">
+                <label class="control-label" for="modalCalculated">Calculated Field Definition</label>
+                <textarea rows="3" class="form-control" id="modalCalculated" data-ng-model="modalField.calculated"></textarea>
+            </span>
             <label class="control-label" for="modalRequired">Required</label>
-            <select required ng-model="modalField.req"  id="modalRequired" class="form-control">
+            <select required data-ng-model="modalField.req"  id="modalRequired" class="form-control">
                 <option>n</option>
                 <option>y</option>
             </select>

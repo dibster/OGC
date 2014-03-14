@@ -1,5 +1,7 @@
 <div data-ng-include="'partials/navbar'"></div>
 <!-- Action Buttons -->
+
+
 <div class="row">
     <div class="col-md-12">
         <div class="dropdown  pull-right">
@@ -38,19 +40,19 @@
                     <td ng-repeat="column in columnCollection" sortable="column.name">
                         <span data-ng-show="$index ==0"><a data-ng-href="#/project/{{project._id}}">{{project[column.name]}}</a></span>
                         <span data-ng-show="$index !=0">
-                            <span ng-switch on="column.type">
+                            <span data-ng-switch on="column.type">
                                 <span data-ng-switch-when="Date" am-time-ago="project[column.name]"></span>
+                                <span data-ng-switch-when="Calculated">
+                                    <span ogc-calculated calculation="column.calculated" project="project"></span>
+                                </span>
                                 <span data-ng-switch-default>{{project[column.name]}}</span>
                             </span>
                         </span>
                     </td>
                 </tr>
-
             </table>
-
         </div>
     </div>
-
 </div>
 
 <div class="footer">

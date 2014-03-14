@@ -40,6 +40,10 @@
         "description": "Text Field Multi Line"
     },
     {
+        "name" : "Calculated",
+        "description": "Calculated Field"
+    },
+    {
         "name" : "Lookup",
         "description": "Date Field"
     }
