@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: ogcCalculatedField', function () {
+describe('Directive: ogcNewsItem', function () {
 
     // load the directive's module
     beforeEach(module('ogcApp'));
@@ -15,9 +15,12 @@ describe('Directive: ogcCalculatedField', function () {
 
       }));
 
-    it('should do a calculation', inject(function ($compile) {
-        element = angular.element('<span ogc-calculated calculation="Description.length" project="project"></span>');
+    it('should show a news item', inject(function ($compile) {
+        element = angular.element('<span ogc-news-item newsitem="Thisisanewsitem"></span>');
         element = $compile(element)(scope);
-        expect(element.text()).toBe('{{result}}');
+        expect(element.text()).toBe('{{newsItem.item}}');
       }));
   });
+/**
+ * Created by dibster on 14/03/14.
+ */

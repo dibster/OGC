@@ -11,6 +11,7 @@ angular.module('ogcApp')
     }];
 
     $scope.configLink = '/config';
+    $scope.profileLink = '/profile'
     
     $scope.isActive = function(route) {
       return route === $location.path();
