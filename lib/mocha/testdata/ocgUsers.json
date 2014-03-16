@@ -1,0 +1,12 @@
+[
+    {
+        "username" : "Ashenhurst",
+        "password" : "@Fr8dman12",
+        "friends" : [
+            {"value" : "Dave"},
+            {"value" : "Pete"},
+            {"value" : "Gareth"},
+            {"value" : "William"}
+        ]
+    }
+]
