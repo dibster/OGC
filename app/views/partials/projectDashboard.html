@@ -1,3 +1,72 @@
 <div data-ng-include="'partials/navbar'"></div>
-<!-- Profile -->
-        Profile
+<!-- Action Buttons -->
+<div class="row">
+    <div class="col-md-4">
+        <ol class="breadcrumb">
+            <li class="active">{{project.Title}}</li>
+        </ol>
+    </div>
+    <div class="col-md-4">
+
+        <progressbar value="55"></progressbar>
+
+    </div>
+    <div class="col-md-4">
+        <div class="dropdown pull-right">
+            <button type="button" class="btn dropdown-toggle"><i class="fa fa-cog"></i></button>
+            <ul class="dropdown-menu">
+                <li>
+                    <a data-ng-href="#/projectcopy/{{currentProjectId}}">Copy Project</a>
+                </li>
+                <li>
+                    <a data-ng-click="showProjectsToCopy">Manage Tasks</a>
+                </li>
+                <li class="divider">
+                </li>
+                <li>
+                    <a data-ng-repeat="list in listDefinitions" data-ng-href="#/lists/{{currentProjectId}}/list/{{list._id}}">{{list.name}}</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        News
+        <i class="fa fa-comment pull-right" ng-click="newsEditorEnabled=!newsEditorEnabled"></i>
+        <form role="form" ng-show="newsEditorEnabled">
+                <div class="form-group">
+                    <label for="newsItem"></label>
+                    <textarea class="form-control" id="newsItem" data-ng-model="news.item"  rows="3"></textarea>
+                </div>
+                <div class="form-actions">
+                    <button type="submit" class="btn btn-primary" data-ng-click="AddNewsItem(news)">Save</button>
+                    <button type="reset" class="btn" ng-click="newsEditorEnabled=!newsEditorEnabled">Done</button>
+                    <p></p>
+                </div>
+        </form>
+        <div class="row">
+            <ul class="list-unstyled">
+                <li ng-repeat="news in project.news | orderBy:'cd':true">
+                    <div class="col-md-8">
+                        <span ogc-news-item newsitem="news" class="pull-left"></span>
+                    </div>
+                    <div class="col-md-4">
+                        <span class="pull-right" am-time-ago="news.cd"></span>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="col-md-4">
+        Tasks
+    </div>
+    <div class="col-md-4">
+        Files
+    </div>
+</div>
+
+<!--<div class="footer">-->
+    <!--<p class="pull-right">{{projects.length}} Projects </p>-->
+<!--</div>-->
