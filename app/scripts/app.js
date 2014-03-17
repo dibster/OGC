@@ -24,6 +24,10 @@ angular.module('ogcApp', [
         templateUrl: 'partials/profile.html',
         controller: 'ProfileCtrl'
       })
+    .when('/scratch', {
+        templateUrl: 'partials/scratch.html',
+        controller: 'ScratchCtrl'
+      })
     .when('/project', {
         templateUrl: 'partials/project.html',
         controller: 'ProjectCtrl'

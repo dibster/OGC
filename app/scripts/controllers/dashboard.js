@@ -11,6 +11,8 @@ angular.module('ogcApp')
 
         $scope.AddNewsItem = function(newsItem) {
 
+            $scope.newsEditorEnabled=!$scope.newsEditorEnabled;
+
             console.log(newsItem);
             if (!(_.has($scope.project, 'news'))){
               $scope.project.news = $scope.newsItems;
