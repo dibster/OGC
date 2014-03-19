@@ -46,7 +46,7 @@ angular.module('ogcApp')
 
             // add timestamp to task
             var newTask = _.assign(task, userTimeStamp);
-            $scope.project.tasks.push(newNewsItem);
+            $scope.project.tasks.push(newTask);
             $scope.project._id = $routeParams.id;
             $scope.project.$update(function() {
                 console.log('saved');

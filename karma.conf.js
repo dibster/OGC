@@ -23,6 +23,7 @@ module.exports = function(config) {
       'app/bower_components/ui-sortable-master/src/sortable.js',
       'app/bower_components/ng-table-master/ng-table.min.js',
       'app/bower_components/angular-moment/angular-moment.min.js',
+      'app/bower_components/moment/moment.js',
       'app/bower_components/angular-elastic/elastic.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',

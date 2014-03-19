@@ -1,0 +1,19 @@
+<div>
+    <div class="row">
+        <ul class="list-unstyled">
+            <li ng-repeat="task in tasks | orderBy:'cd':false track by $index ">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <span>{{task.name}}</span>
+                        </div>
+                        <div class="col-md-2">
+                            <span>{{task.who}}</span>
+                            <h5><small>{{task.date | date:'dd MMM'}}</small></h5>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -54,6 +54,23 @@
         Tasks
         <i class="fa fa-plus-square pull-right" ng-click="taskEditorEnabled=!taskEditorEnabled"></i>
         <hr>
+        <form role="form" ng-show="taskEditorEnabled">
+            <div class="form-group">
+                <label for="task"></label>
+                <input type="text" class="form-control" id="task" data-ng-model="task.name" placeholder="New Task">
+                <br>
+                <input type="text" class="form-control" placeholder="When" datepicker-popup="dd-MM-yy" show-weeks="0" datepicker-options="dateOptions" data-ng-model="task.date">
+                <br>
+                <input type="text" class="form-control" placeholder="Who" data-ng-model="task.who">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-ng-click="AddTask(task)">Add</button>
+                <button type="reset" class="btn" ng-click="taskEditorEnabled=!taskEditorEnabled">Cancel</button>
+                <p></p>
+            </div>
+        </form>
+        <!--Use Directive to show all Tasks-->
+        <div ogc-task-list tasks="project.tasks"></div>
     </div>
     <div class="col-md-4">
         Files
