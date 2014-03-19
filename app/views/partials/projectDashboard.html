@@ -37,25 +37,17 @@
         <i class="fa fa-comment pull-right" ng-click="newsEditorEnabled=!newsEditorEnabled"></i>
         <hr>
         <form role="form" ng-show="newsEditorEnabled">
-                <div class="form-group">
-                    <label for="newsItem"></label>
-                    <textarea class="form-control" id="newsItem" data-ng-model="news.item"  rows="3"></textarea>
-                </div>
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-primary" data-ng-click="AddNewsItem(news)">Post</button>
-                    <button type="reset" class="btn" ng-click="newsEditorEnabled=!newsEditorEnabled">Cancel</button>
-                    <p></p>
-                </div>
+            <div class="form-group">
+                <label for="newsItem"></label>
+                <textarea class="form-control" id="newsItem" data-ng-model="news.item"  rows="3"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-ng-click="AddNewsItem(news)">Post</button>
+                <button type="reset" class="btn" ng-click="newsEditorEnabled=!newsEditorEnabled">Cancel</button>
+                <p></p>
+            </div>
         </form>
-        <div class="row">
-            <ul class="list-unstyled">
-                <li ng-repeat="news in project.news | orderBy:'cd':true">
-                    <div class="col-md-12">
-                        <span ogc-news-item newsitem="news"></span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+        <div ogc-news-item newsitems="project.news"></div>
     </div>
     <div class="col-md-4">
         Tasks
@@ -70,5 +62,5 @@
 </div>
 
 <!--<div class="footer">-->
-    <!--<p class="pull-right">{{projects.length}} Projects </p>-->
+<!--<p class="pull-right">{{projects.length}} Projects </p>-->
 <!--</div>-->

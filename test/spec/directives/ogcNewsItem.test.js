@@ -9,15 +9,20 @@ describe('Directive: ogcNewsItem', function () {
         scope;
 
     beforeEach(inject(function ($rootScope, $compile) {
-        element = angular.element('<span ogc-news-item newsitem="newsItem"></span>');
+        element = angular.element('<span ogc-news-item newsitems="newsItems"></span>');
         scope = $rootScope.$new();
-        scope.project = {};
-        scope.project.Description = 'Project Name';
-        var testnewsItem = {};
-        testnewsItem.item = 'This is an item';
 
+        var testNewsItems = [{}];
+        testNewsItems[0].item = 'This is an item';
+        testNewsItems[0].cd = '2014-03-17T09:18:02.515Z';
+        console.log(JSON.stringify(testNewsItems));
+        // compile
+        //
+        //
+        // element
         var e = $compile(element)(scope);
-        e.scope().newsItem = testnewsItem;
+        // set the isolated Scope value
+        e.scope().newsItems = testNewsItems;
         e.scope().$digest();
 
       }));
