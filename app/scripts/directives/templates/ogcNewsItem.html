@@ -1,7 +1,7 @@
 <div>
     <div class="row">
         <ul class="list-unstyled">
-            <li ng-repeat="news in newsItems track by $index | orderBy:'cd':true">
+            <li ng-repeat="news in newsItems | orderBy:'cd':true track by $index ">
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-10">
@@ -11,7 +11,7 @@
                             <span>Dave</span>
                         </div>
                     </div>
-                    <h6><small><span am-time-ago="newsItem.cd"></span></small></h6>
+                    <h6><small><span am-time-ago="news.cd"></span></small></h6>
                 </div>
             </li>
         </ul>
