@@ -3,12 +3,12 @@
 angular.module('ogcApp')
     .directive('ogcNewsItem', function () {
         return {
-            template: '<div><span>{{newsItem.item}}</span></div>',
+            templateUrl: 'scripts/directives/templates/ogcNewsItem.html',
             scope: {
                 newsItem: '=newsitem'
               },
               link: function LinkingFunction(scope) {
-
+//                console.log('in directive ' + newsItem);
               }
             };
       });

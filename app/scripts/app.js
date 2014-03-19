@@ -8,6 +8,7 @@ angular.module('ogcApp', [
   'ngTable',
   'ui.sortable',
   'angularMoment',
+  'monospaced.elastic',
   'ngRoute'
 ])
   .config(function ($routeProvider, $locationProvider) {

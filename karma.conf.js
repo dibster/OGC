@@ -23,11 +23,15 @@ module.exports = function(config) {
       'app/bower_components/ui-sortable-master/src/sortable.js',
       'app/bower_components/ng-table-master/ng-table.min.js',
       'app/bower_components/angular-moment/angular-moment.min.js',
+      'app/bower_components/angular-elastic/elastic.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
+      'app/scripts/**/*.html',
       'test/mock/**/*.js',
       'test/spec/**/*.js'
     ],
+
+    //preprocessors
 
     // list of files / patterns to exclude
     exclude: [],
@@ -57,6 +61,13 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, it capture browsers, run tests and exit
-    singleRun: false
-  });
+    singleRun: false,
+
+    preprocessors : {
+        'app/scripts/directives/**/*.html': 'ng-html2js'
+      },
+      ngHtml2JsPreprocessor: {
+          stripPrefix: 'app/'
+        }
+      });
 };
