@@ -5,6 +5,7 @@
     "express": "~3.4.3",
     "mongodb": "1.1.8",
     "lodash": "~2.4.1",
+    "async": "~0.2.10",
     "ejs": "~0.8.4"
   },
   "devDependencies": {
