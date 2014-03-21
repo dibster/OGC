@@ -1,15 +1,34 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ProjectDashBoardCtrl', function ($scope, $routeParams, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects) {
+    .controller('ProjectDashBoardCtrl', function ($scope, $routeParams, Objects, ObjectTypes, ProjectTypes, SimilarProjects, PrepareRecord, $modal, Projects) {
 
         $scope.newsItems = [];
         $scope.tasks = [];
         $scope.files = [];
 
+        $scope.alerts = [];
+
         Projects.get({id : $routeParams.id},function(res) {
             $scope.project = res;
+            var currentTime = new Date().getTime();
+            var projectCreateTime = new Date($scope.project.cd).getTime();
+            var timeDiff = currentTime - projectCreateTime;
+            if (timeDiff < 9000000) {
+              // do the search
+              SimilarProjects.query({id : $routeParams.id},function(res) {
+                  if (res.length > 1) {
+                    $scope.alerts = [
+                        { type: 'success', msg: 'Have found ' + res.length + ' similar projects,  To copy tasks, assets or people click ' + '<a href=#/projectcopy/' + $scope.project._id + '>Here</a>' }
+                      ];
+                  }
+                });
+            }
+
           });
+
+
+        // if project set in the last few minutes then search for similar ones and show the message
 
         $scope.AddNewsItem = function(newsItem) {
 

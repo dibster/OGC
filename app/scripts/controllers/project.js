@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ProjectCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
+    .controller('ProjectCtrl', function ($scope, Objects, $location, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
 
         $scope.projects = [{}];
 
@@ -56,7 +56,9 @@ angular.module('ogcApp')
             $scope.project = ogcProject.$save(function(response) {
                 $scope.projects.push(response);
                 //                return response;
+                $location.path( '/project/' + response._id);
               });
+
           };
 
         $scope.openCreateProjectModal = function (selectedObject) {

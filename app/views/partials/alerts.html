@@ -1,5 +1,6 @@
 <div class="col-md-12">
-    <p></p>
-    <alert ng-repeat="alert in alerts" type = "alert.type" close="alerts.splice($index, 1)"> {{ alert.msg }}</alert>
+     <alert ng-repeat="alert in alerts" type = "alert.type" close="alerts.splice($index, 1)">
+         <span ng-bind-html="alert.msg"></span>
+      </alert>
 </div>
 

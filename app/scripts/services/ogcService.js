@@ -16,6 +16,10 @@ angular.module('ogcApp')
         return $resource(url + 'api/projects/types', {});
       })
 
+    .factory('SimilarProjects', function($resource){
+        return $resource(url + 'api/match/project/:id', {});
+      })
+
     .factory('Projects', function($resource){
         return $resource(url + 'api/projects/:id', {id:'@_id'}, {update:{method: 'PUT'}});
       })
