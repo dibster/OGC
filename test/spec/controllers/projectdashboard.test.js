@@ -26,9 +26,16 @@ describe('ProjectDashBoardCtrl', function(){
 
     // tests start here
 
-    it('should get aproject', function(){
+    it('should get a project', function(){
         $httpBackend.flush();
         expect(scope.project.name).toBe('Campaign');
       });
 
-  });
+    it('should search For Projects and  a project', function(){
+        $httpBackend.flush();
+        expect(scope.project.name).toBe('Campaign');
+      });
+
+
+
+});

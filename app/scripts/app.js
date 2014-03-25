@@ -37,6 +37,10 @@ angular.module('ogcApp', [
         templateUrl: 'partials/projectDashboard.html',
         controller: 'ProjectDashBoardCtrl'
       })
+    .when('/projectcopy/:id', {
+        templateUrl: 'partials/projectCopy.html',
+        controller: 'ProjectCopyCtrl'
+      })
      .when('/object/:id/edit', {
         templateUrl: 'partials/object.html',
         controller: 'ObjectCtrl'

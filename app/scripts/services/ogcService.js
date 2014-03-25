@@ -12,6 +12,10 @@ angular.module('ogcApp')
         return $resource(url + 'api/admin/objecttypes', {});
       })
 
+    .factory('ObjectDefinitionForType', function($resource){
+        return $resource(url + 'api/admin/objects/findbytype/:type', {});
+      })
+
     .factory('ProjectTypes', function($resource){
         return $resource(url + 'api/projects/types', {});
       })
@@ -30,6 +34,10 @@ angular.module('ogcApp')
 
     .factory('hashTags', function($resource){
         return $resource(url + 'api/hashtags', {});
+      })
+
+    .factory('SearchResults', function(){
+        return {};
       })
 
     .service('PrepareRecord', function() {
