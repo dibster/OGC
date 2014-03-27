@@ -46,6 +46,16 @@
 
     </div>
     <div class="col-md-9">
+        <div class="row">
+            <div class="col-md-8">
+                <label class="checkbox">
+                    <input type="checkbox" data-ng-model="showAll" data-ng-click="showAll()">Show all Projects
+                </label>
+            </div>
+            <div class="col-md-4">
+                <input type="text" data-ng-model="search.filter" class="form-control" placeholder="Filter ...">
+            </div>
+        </div>
         <table ng-table="tableParams" class="table">
             <thead>
             <tr>
@@ -57,7 +67,7 @@
             </tr>
             </thead>
             <!--don't need to order by score as they come at the top anyway-->
-            <tr ng-repeat="project in searchResults">
+            <tr ng-repeat="project in searchResults  | filter:search.filter">
                 <td ng-repeat="column in columnCollection" sortable="column.name">
                     <span data-ng-show="$index ==0"><a data-ng-click="getProjectSummary(project)">{{project[column.name]}}</a></span>
                         <span data-ng-show="$index !=0">

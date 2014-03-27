@@ -6,6 +6,7 @@ angular.module('ogcApp')
         $scope.columnCollection = [];
         $scope.searchResults = [];
         $scope.projectSelected = false;
+        $scope.showAll = false;
         $scope.copyParms = {
             useWeekends : false,
             replaceAllTasks : false,
@@ -34,7 +35,6 @@ angular.module('ogcApp')
               }
             });
         }
-
 
         // Set the table properties
         /*jshint -W055 */
@@ -67,6 +67,7 @@ angular.module('ogcApp')
               });
           };
 
+        // do the copy
         $scope.copyProject = function() {
             console.log('clicked copy');
             $scope.copyParms.tasks = _.filter($scope.selectedProject.tasks,'selected');
@@ -75,6 +76,25 @@ angular.module('ogcApp')
                 console.log('Updated Task' + response);
               });
             $location.path( '/project/' + $routeParams.id);
+          };
+
+        // show all
+        $scope.showAll = function() {
+            console.log('clicked show all');
+            Projects.get({id : $routeParams.id},function(res) {
+                $scope.currentProject = res;
+                var searchObject = {};
+                searchObject.Type = $scope.currentProject.Type;
+                var searchString = encodeURIComponent(JSON.stringify(searchObject));
+
+                // get the project Data
+
+                Projects.query({filter : searchString},function(response) {
+                    $scope.searchResults = response;
+                  });
+              });
+
+
           };
 
       });

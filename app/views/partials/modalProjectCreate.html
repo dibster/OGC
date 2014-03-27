@@ -13,7 +13,7 @@
                     <input type="text" class="form-control" ng-switch-when="Tag" data-ng-model="formItem.content"  typeahead="type for type in bannertypes | filter:$viewValue | limitTo:8">
                     <input type="text" class="form-control input-small" placeholder="When" datepicker-popup="dd-MM-yy" show-weeks="0" datepicker-options="dateOptions" ng-switch-when="Date" data-ng-model="formItem.content">
                     <input type="number" class="form-control" ng-switch-when="Number" data-ng-model="formItem.content">
-                    <select class="form-control" ng-switch-when="list" data-ng-model="formItem.content" ng-options="option for option in formItem.options"/>
+                    <select class="form-control" ng-switch-when="Choice" data-ng-model="formItem.content" ng-options="option for option in formItem.values"/>
                     <input type="checkbox" class="form-control" ng-switch-when="Yes or No" data-ng-model="formItem.content">
                 </div>
             </div>
