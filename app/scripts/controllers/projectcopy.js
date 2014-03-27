@@ -1,11 +1,19 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ProjectCopyCtrl', function ($scope, Objects, $location, $routeParams,  ObjectTypes, ObjectDefinitionForType, SimilarProjects, ProjectTypes, SearchResults, ngTableParams,Projects ) {
+    .controller('ProjectCopyCtrl', function ($scope, Objects, $location, $routeParams,  ObjectTypes, ObjectDefinitionForType, SimilarProjects, ProjectTypes, SearchResults, ngTableParams, Projects, CopyProject ) {
 
         $scope.columnCollection = [];
         $scope.searchResults = [];
         $scope.projectSelected = false;
+        $scope.copyParms = {
+            useWeekends : false,
+            replaceAllTasks : false,
+            startDate : new Date(),
+            tasks : [],
+            endDate : new Date()
+          };
+
         // get any saved search results (when new project created)
 
         $scope.searchResults = SearchResults;
@@ -49,16 +57,25 @@ angular.module('ogcApp')
                 // add selected property to object, makes it easier to use when copying
                 _.each($scope.selectedProject.tasks,function(task) {
                     task.selected=true;
-                  })
+                  });
                 _.each($scope.selectedProject.assets,function(asset) {
                     asset.selected=false;
-                  })
+                  });
                 $scope.alerts.splice(0,$scope.alerts.length);
                 $scope.alerts.push({msg: 'Select Tasks, Assets and Team from the area on the left'});
 
               });
           };
 
+        $scope.copyProject = function() {
+            console.log('clicked copy');
+            $scope.copyParms.tasks = _.filter($scope.selectedProject.tasks,'selected');
+            console.log($scope.copyParms);
+            CopyProject.update({id : $routeParams.id},$scope.copyParms,function(response) {
+                console.log('Updated Task' + response);
+              });
+            $location.path( '/project/' + $routeParams.id);
+          };
 
       });
 

@@ -20,13 +20,13 @@
 
                 <input type="text" class="form-control" placeholder="Start" datepicker-append-to-body="true"
                        datepicker-popup="dd-MM-yy" show-weeks="0" datepicker-options="dateOptions"
-                       data-ng-model="formItem.startdate">
+                       data-ng-model="copyParms.startDate">
                 <label>Finish Project by</label>
                 <input type="text" class="form-control" placeholder="End" datepicker-append-to-body="true"
                        datepicker-popup="dd-MM-yy" show-weeks="0" datepicker-options="dateOptions"
-                       data-ng-model="formItem.enddate">
+                       data-ng-model="copyParms.endDate">
                 <label class="checkbox">
-                    <input type="checkbox" data-ng-model="skipWeekends" checked>Skip Weekends and Holidays
+                    <input type="checkbox" data-ng-model="copyParms.useWeekends" checked>Schedule on Weekends
                 </label>
             </accordion-group>
             <accordion-group heading="Files  {{selectedProject.assets.length}}" is-open="false">
@@ -41,7 +41,7 @@
         </accordion>
         <div data-ng-show="projectSelected" class="text-right">
             <br>
-            <button type="button" class="btn btn-primary"><i class="fa fa-files-o"></i> Copy </button>
+            <button type="button" class="btn btn-primary" data-ng-click="copyProject()"><i class="fa fa-files-o"></i> Copy </button>
         </div>
 
     </div>

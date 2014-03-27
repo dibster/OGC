@@ -15,7 +15,7 @@ angular.module('ogcApp')
             var currentTime = new Date().getTime();
             var projectCreateTime = new Date($scope.project.cd).getTime();
             var timeDiff = currentTime - projectCreateTime;
-            if (timeDiff < 9000000) {
+            if (timeDiff < 6000) {
               // do the search
               SimilarProjects.query({id : $routeParams.id},function(res) {
                   if (res.length > 1) {
@@ -30,8 +30,6 @@ angular.module('ogcApp')
 
           });
 
-
-        // if project set in the last few minutes then search for similar ones and show the message
 
         $scope.AddNewsItem = function(newsItem) {
 
