@@ -4,7 +4,11 @@ angular.module('ogcApp')
     .controller('ProjectCopyCtrl', function ($scope, Objects, $location, $routeParams,  ObjectTypes, ObjectDefinitionForType, SimilarProjects, ProjectTypes, SearchResults, ngTableParams, Projects, CopyProject ) {
 
         $scope.columnCollection = [];
+        $scope.projectDefinition = {};
+        $scope.columnCollection = [];
         $scope.searchResults = [];
+        $scope.alerts = [];
+        $scope.project = {};
         $scope.projectSelected = false;
         $scope.showAll = false;
         $scope.copyParms = {
@@ -15,9 +19,25 @@ angular.module('ogcApp')
             endDate : new Date()
           };
 
+        $scope.viewSettings = {};
+        $scope.viewSettings.showAllFilterButton = false;
+
+
         // get any saved search results (when new project created)
 
         $scope.searchResults = SearchResults;
+
+        // get the current project type and the view fields
+
+        Projects.get({id : $routeParams.id},function(project) {
+            $scope.project = project;
+            // get the view fields
+            ObjectDefinitionForType.get({type: $scope.project.Type}, function (objectDefinition) {
+                $scope.projectDefinition = objectDefinition;
+                $scope.columnCollection = $scope.projectDefinition.views[3].fields;
+                console.log($scope.columnCollection);
+              });
+          });
 
         if (_.isEmpty($scope.searchResults)) {
           SimilarProjects.query({id : $routeParams.id},function(res) {
@@ -36,6 +56,10 @@ angular.module('ogcApp')
             });
         }
 
+        if (_.isEmpty($scope.searchResults)) {
+
+          $scope.viewSettings.showAllFilterButton = true;
+        }
         // Set the table properties
         /*jshint -W055 */
         $scope.tableParams = new ngTableParams({
@@ -94,8 +118,16 @@ angular.module('ogcApp')
                   });
               });
 
+            $scope.viewSettings.showAllFilterButton = false;
+            $scope.alerts.splice(0,$scope.alerts.length);
+            $scope.alerts.push({msg: 'Showing all projects'});
 
           };
+
+        if (_.isEmpty($scope.searchResults)) {
+          $scope.showAll();
+          $scope.viewSettings.showAllFilterButton = false;
+        }
 
       });
 

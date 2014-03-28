@@ -41,15 +41,17 @@
         </accordion>
         <div data-ng-show="projectSelected" class="text-right">
             <br>
-            <button type="button" class="btn btn-primary" data-ng-click="copyProject()"><i class="fa fa-files-o"></i> Copy </button>
+            <button type="button" class="btn btn-primary" data-ng-click="copyProject()"><i class="fa fa-files-o"></i>
+                Copy
+            </button>
         </div>
 
     </div>
     <div class="col-md-9">
         <div class="row">
             <div class="col-md-8">
-                <label class="checkbox">
-                    <input type="checkbox" data-ng-model="showAll" data-ng-click="showAll()">Show all Projects
+                <label class="checkbox" data-ng-show="viewSettings.showAllFilterButton">
+                    <input type="checkbox" data-ng-model="showAll" data-ng-click="showAll()">Show all {{project.Type}}s
                 </label>
             </div>
             <div class="col-md-4">
@@ -70,15 +72,15 @@
             <tr ng-repeat="project in searchResults  | filter:search.filter">
                 <td ng-repeat="column in columnCollection" sortable="column.name">
                     <span data-ng-show="$index ==0"><a data-ng-click="getProjectSummary(project)">{{project[column.name]}}</a></span>
-                        <span data-ng-show="$index !=0">
-                            <span data-ng-switch on="column.type">
-                                <span data-ng-switch-when="Date" am-time-ago="project[column.name]"></span>
-                                <span data-ng-switch-when="Calculated">
-                                    <span ogc-calculated calculation="column.calculated" project="project"></span>
-                                </span>
-                                <span data-ng-switch-default>{{project[column.name]}}</span>
+                    <span data-ng-show="$index !=0">
+                        <span data-ng-switch on="column.type">
+                            <span data-ng-switch-when="Date" am-time-ago="project[column.name]"></span>
+                            <span data-ng-switch-when="Calculated">
+                                <span ogc-calculated calculation="column.calculated" project="project"></span>
                             </span>
+                            <span data-ng-switch-default>{{project[column.name]}}</span>
                         </span>
+                    </span>
                 </td>
             </tr>
         </table>
