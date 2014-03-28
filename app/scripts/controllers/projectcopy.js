@@ -35,7 +35,6 @@ angular.module('ogcApp')
             ObjectDefinitionForType.get({type: $scope.project.Type}, function (objectDefinition) {
                 $scope.projectDefinition = objectDefinition;
                 $scope.columnCollection = $scope.projectDefinition.views[3].fields;
-                console.log($scope.columnCollection);
               });
           });
 
@@ -93,7 +92,6 @@ angular.module('ogcApp')
 
         // do the copy
         $scope.copyProject = function() {
-            console.log('clicked copy');
             $scope.copyParms.tasks = _.filter($scope.selectedProject.tasks,'selected');
             console.log($scope.copyParms);
             CopyProject.update({id : $routeParams.id},$scope.copyParms,function(response) {
@@ -109,6 +107,9 @@ angular.module('ogcApp')
                 $scope.currentProject = res;
                 var searchObject = {};
                 searchObject.Type = $scope.currentProject.Type;
+                $scope.viewSettings.showAllFilterButton = false;
+                $scope.alerts.splice(0,$scope.alerts.length);
+                $scope.alerts.push({msg: 'Showing all ' + $scope.currentProject.Type + 's'});
                 var searchString = encodeURIComponent(JSON.stringify(searchObject));
 
                 // get the project Data
@@ -118,9 +119,7 @@ angular.module('ogcApp')
                   });
               });
 
-            $scope.viewSettings.showAllFilterButton = false;
-            $scope.alerts.splice(0,$scope.alerts.length);
-            $scope.alerts.push({msg: 'Showing all projects'});
+
 
           };
 

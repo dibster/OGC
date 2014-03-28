@@ -11,6 +11,8 @@ describe('ProjectCopyCtrl', function(){
         $httpBackend = _$httpBackend_;
         $httpBackend.when('GET', 'http://localhost:9000/api/match/project/6').respond([{id: 6, name: 'Campaign'}]);
         $httpBackend.when('GET', 'http://localhost:9000/api/admin/objects/findbytype').respond({id: 5, name: 'Campaign', fields : [{name : 'existing field', type : 'Date', req : 'n'}], views : [{name : 'create', fields : [{name : 'title'}]},{name : 'create', fields : [{name : 'title'}]},{name : 'create', fields : [{name : 'title'}]},{name : 'create', fields : [{name : 'title'}]}]});
+        $httpBackend.when('GET', 'http://localhost:9000/api/projects/6').respond({id: 5, name: 'Campaign', fields : [{name : 'existing field', type : 'Date', req : 'n'}], views : [{name : 'create', fields : [{name : 'title'}]}]});
+        $httpBackend.when('GET', 'http://localhost:9000/api/projects?filter=%257B%257D').respond([{name: 'Campaign 3'},{name: 'Campaign 3'},{name: 'Campaign 3'},{name: 'Campaign 3'}]);
         //create an empty scope
         scope = $rootScope.$new();
         // add route Parameters
@@ -29,7 +31,7 @@ describe('ProjectCopyCtrl', function(){
 
     it('should find a project set when the project is created', function(){
         $httpBackend.flush();
-        expect(scope.searchResults.length).toBe(1);
+        expect(scope.searchResults.length).toBe(4);
       });
 
 
