@@ -16,11 +16,7 @@ describe('Directive: ogcNewsItem', function () {
         var testNewsItems = [{}];
         testNewsItems[0].item = 'This is an item';
         testNewsItems[0].cd = new Date();
-        console.log(JSON.stringify(testNewsItems));
         // compile
-        //
-        //
-        // element
         var e = $compile(element)(scope);
         // set the isolated Scope value
         e.scope().newsItems = testNewsItems;

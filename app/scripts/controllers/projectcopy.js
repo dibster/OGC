@@ -73,20 +73,26 @@ angular.module('ogcApp')
           });
         /*jshint +W055 */
 
+        $scope.prepareProjectSummary = function(project) {
+
+            $scope.selectedProject = project;
+            $scope.projectSelected = true;
+            // add selected property to object, makes it easier to use when copying
+            _.each($scope.selectedProject.tasks,function(task) {
+                task.selected=true;
+              });
+            _.each($scope.selectedProject.assets,function(asset) {
+                asset.selected=false;
+              });
+
+            $scope.alerts.splice(0,$scope.alerts.length);
+            $scope.alerts.push({msg: 'Select Tasks, Assets and Team from the area on the left'});
+          };
+
+
         $scope.getProjectSummary = function(selectedProject) {
             Projects.get({id : selectedProject._id},function(project) {
-                $scope.selectedProject = project;
-                $scope.projectSelected = true;
-                // add selected property to object, makes it easier to use when copying
-                _.each($scope.selectedProject.tasks,function(task) {
-                    task.selected=true;
-                  });
-                _.each($scope.selectedProject.assets,function(asset) {
-                    asset.selected=false;
-                  });
-                $scope.alerts.splice(0,$scope.alerts.length);
-                $scope.alerts.push({msg: 'Select Tasks, Assets and Team from the area on the left'});
-
+                $scope.prepareProjectSummary(project);
               });
           };
 
@@ -102,7 +108,6 @@ angular.module('ogcApp')
 
         // show all
         $scope.showAll = function() {
-            console.log('clicked show all');
             Projects.get({id : $routeParams.id},function(res) {
                 $scope.currentProject = res;
                 var searchObject = {};
