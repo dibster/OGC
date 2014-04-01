@@ -8,6 +8,7 @@ angular.module('ogcApp', [
   'ngTable',
   'ui.sortable',
   'angularMoment',
+  'angularFileUpload',
   'monospaced.elastic',
   'ngRoute'
 ])

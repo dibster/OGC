@@ -25,6 +25,7 @@ module.exports = function(config) {
       'app/bower_components/angular-moment/angular-moment.min.js',
       'app/bower_components/moment/moment.js',
       'app/bower_components/angular-elastic/elastic.js',
+      'app/bower_components/ng-file-upload/angular-file-upload.min.js',
       'app/scripts/*.js',
       'app/scripts/**/*.js',
       'app/scripts/**/*.html',

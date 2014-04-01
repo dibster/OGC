@@ -17,6 +17,7 @@
     "angular-sanitize": "1.2.10",
     "angular-route": "1.2.10",
     "ng-table": "*",
+    "ng-file-upload" : "*",
     "angular-elastic" : "*"
   },
   "devDependencies": {

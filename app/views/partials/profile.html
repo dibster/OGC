@@ -4,7 +4,11 @@
 
 <div class="row">
     <div class="col-md-4">
-        Profile
+        <div class="form-group">
+            <input type="text" ng-model="myModelObj">
+            <input type="file" ng-file-select="onFileSelect($files)" >
+        </div>
+
     </div>
     <div class="col-md-8">
         Messages
