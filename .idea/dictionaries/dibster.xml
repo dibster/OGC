@@ -1,10 +1,12 @@
 <component name="ProjectDictionaryState">
   <dictionary name="dibster">
     <words>
+      <w>addfile</w>
       <w>addpicture</w>
       <w>bson</w>
       <w>dropdown</w>
       <w>fieldtypes</w>
+      <w>fileinput</w>
       <w>lodash</w>
       <w>mongo</w>
       <w>objecttypes</w>

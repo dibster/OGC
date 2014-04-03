@@ -13,6 +13,8 @@
 
     </div>
     <div class="col-md-4">
+        <button type="submit" class="btn btn-default" data-ng-click="AddURL(file)">Status</button>
+        <button type="submit" class="btn btn-default" data-ng-click="AddURL(file)">Lists</button>
         <div class="dropdown pull-right">
             <button type="button" class="btn dropdown-toggle"><i class="fa fa-cog"></i></button>
             <ul class="dropdown-menu">
@@ -21,6 +23,18 @@
                 </li>
                 <li>
                     <a data-ng-click="showProjectsToCopy">Manage Tasks</a>
+                </li>
+                <li>
+                    <a data-ng-click="showProjectsToCopy">Smart Lists</a>
+                </li>
+                <li>
+                    <a data-ng-click="showProjectsToCopy">Trash</a>
+                </li>
+                <li>
+                    <a data-ng-click="showProjectsToCopy">History</a>
+                </li>
+                <li>
+                    <a data-ng-click="showProjectsToCopy">Reports</a>
                 </li>
                 <li class="divider">
                 </li>
@@ -75,8 +89,36 @@
     </div>
     <div class="col-md-4">
         Files
-        <i class="fa fa-upload pull-right" ng-click="taskEditorEnabled=!taskEditorEnabled"></i>
+        <i class="fa fa-upload pull-right" ng-click="fileEditorEnabled=!fileEditorEnabled"></i>
         <hr>
+        <form role="form" ng-show="fileEditorEnabled">
+
+            <div class="form-group">
+                <textarea class="form-control" id="fileDescription" data-ng-model="file.description"  rows="3"></textarea>
+                <br>
+                <span class="btn btn-default fileinput-button">
+                    <i class="fa fa-upload"></i>
+                    <input type="file" ng-file-select="onFileSelect($files)" >
+                    <span> Upload</span>
+                </span>
+                <span class="btn btn-default fileinput-button pull-right" data-ng-click="linkSelected=!linkSelected">
+                    <i class="fa fa-link" ></i>
+                    <span> Link</span>
+                </span>
+                <br>
+                <span data-ng-show="linkSelected">
+                    <label for="url"></label>
+                    <input type="text" class="form-control" id="url" data-ng-model="file.url" placeholder="http://">
+                </span>
+                <br>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-ng-click="AddURL(file)">Save</button>
+                <button type="submit" class="btn" data-ng-click="AddURL(file)">Save and Add more</button>
+                <button type="reset" class="btn" ng-click="fileEditorEnabled=!fileEditorEnabled">Cancel</button>
+                <p></p>
+            </div>
+        </form>
     </div>
 </div>
 
