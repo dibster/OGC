@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ProjectDashBoardCtrl', function ($scope, $routeParams, $upload, Objects, ObjectTypes, ProjectTypes, SearchResults,  SimilarProjects, PrepareRecord, $modal, Projects) {
+    .controller('ProjectDashBoardCtrl', function ($scope, $routeParams, $upload, Objects, Files, ObjectTypes, ProjectTypes, SearchResults,  SimilarProjects, PrepareRecord, $modal, Projects) {
 
         $scope.newsItems = [];
         $scope.tasks = [];
@@ -85,27 +85,40 @@ angular.module('ogcApp')
               $scope.AddNewsItem({'item' : file.comment });
             }
 
-            console.log($scope.FileData);
-            console.log(file);
-
             $scope.fileEditorEnabled=!$scope.fileEditorEnabled;
-            file.name = $scope.FileData.filename;
 
-            if (!(_.has($scope.project, 'files'))){
-              $scope.project.files = $scope.files;
-            }
+            /// create new file entry using fileData
 
-            var user = 1;
-            var datetimeNow = new Date();
-            var userTimeStamp = {'u' : user, 'cd' : datetimeNow};
+            var newFile = new Files($scope.FileData);
 
-            // add timestamp to file
-            var newFile = _.assign(file, userTimeStamp);
-            $scope.project.files.push(newFile);
-            $scope.project._id = $routeParams.id;
-            $scope.project.$update(function() {
-                console.log('saved');
+            $scope.addedfile = newFile.$save(function(response) {
+                file.fileId =  response._id;
+                file.name = $scope.FileData.filename;
+                file.isImage = $scope.FileData.isImage;
+                file.isOffice = $scope.FileData.isOffice;
+                file.url = $scope.FileData.targetPath;
+
+
+                if (!(_.has($scope.project, 'files'))){
+                  $scope.project.files = $scope.files;
+                }
+
+                var user = 1;
+                var datetimeNow = new Date();
+                var userTimeStamp = {'u' : user, 'cd' : datetimeNow};
+
+                // add timestamp to file
+                var newFile = _.assign(file, userTimeStamp);
+                $scope.project.files.push(newFile);
+                $scope.project._id = $routeParams.id;
+                $scope.project.$update(function() {
+                    console.log('saved');
+                    $scope.FileData = {};
+                    $scope.file = {};
+                  });
               });
+
+
           };
 
         $scope.onFileSelect = function($files) {
