@@ -74,6 +74,7 @@ angular.module('ogcApp')
           };
 
         $scope.onFileSelect = function($files) {
+            console.log($files[0].name);
             for (var i = 0; i < $files.length; i++) {
               var file = $files[i];
               $scope.upload = $upload.upload({

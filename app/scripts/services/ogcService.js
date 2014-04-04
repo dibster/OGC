@@ -28,6 +28,11 @@ angular.module('ogcApp')
         return $resource(url + 'api/projects/:id', {id:'@_id'}, {update:{method: 'PUT'}});
       })
 
+    .factory('Files', function($resource){
+        return $resource(url + 'api/files/:id', {id:'@_id'}, {update:{method: 'PUT'}});
+      })
+
+
     .factory('CopyProject', function($resource){
         return $resource(url + 'api/project/copy/:id', {id:'@_id'}, {update:{method: 'PUT'}});
       })

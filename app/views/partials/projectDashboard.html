@@ -94,16 +94,17 @@
         <form role="form" ng-show="fileEditorEnabled">
 
             <div class="form-group">
-                <textarea class="form-control" id="fileDescription" data-ng-model="file.description"  rows="3"></textarea>
+                <label for="fileDescription"></label>
+                <textarea class="form-control" id="fileDescription" data-ng-model="file.comment"  placeholder="Add a Comment" rows="3"></textarea>
                 <br>
                 <span class="btn btn-default fileinput-button">
-                    <i class="fa fa-upload"></i>
+                    <i class="fa fa-file"></i>
                     <input type="file" ng-file-select="onFileSelect($files)" >
-                    <span> Upload</span>
+                    <span> Select a File</span>
                 </span>
-                <span class="btn btn-default fileinput-button pull-right" data-ng-click="linkSelected=!linkSelected">
+                <span class="btn btn-default fileinput-button" data-ng-click="linkSelected=!linkSelected">
                     <i class="fa fa-link" ></i>
-                    <span> Link</span>
+                    <span> Add a Link</span>
                 </span>
                 <br>
                 <span data-ng-show="linkSelected">
