@@ -81,12 +81,12 @@ angular.module('ogcApp')
             _.each($scope.selectedProject.tasks,function(task) {
                 task.selected=true;
               });
-            _.each($scope.selectedProject.assets,function(asset) {
-                asset.selected=false;
+            _.each($scope.selectedProject.files,function(file) {
+                file.selected=false;
               });
 
             $scope.alerts.splice(0,$scope.alerts.length);
-            $scope.alerts.push({msg: 'Select Tasks, Assets and Team from the area on the left'});
+            $scope.alerts.push({msg: 'Select Tasks, Files and Team from the area on the left'});
           };
 
 

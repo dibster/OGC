@@ -29,11 +29,11 @@
                     <input type="checkbox" data-ng-model="copyParms.useWeekends" checked>Schedule on Weekends
                 </label>
             </accordion-group>
-            <accordion-group heading="Files  {{selectedProject.assets.length}}" is-open="false">
-                <ul class="unstyled">
-                    <li ng-repeat="asset in selectedProject.assets | orderBy:'date':false">
+            <accordion-group heading="Files  {{selectedProject.files.length}}" is-open="false">
+                <ul class="list-unstyled">
+                    <li ng-repeat="file in selectedProject.files | orderBy:'date':false">
                         <label class="checkbox">
-                            <input type="checkbox" data-ng-model="asset.selected">{{ asset.filename }}
+                            <input type="checkbox" data-ng-model="file.selected">{{file.name}}
                         </label>
                     </li>
                 </ul>

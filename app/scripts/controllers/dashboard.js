@@ -9,6 +9,7 @@ angular.module('ogcApp')
         $scope.currentProjectId = $routeParams.id;
         $scope.alerts = [];
         SearchResults = {};
+        $scope.FileData = {};
 
         Projects.get({id : $scope.currentProjectId},function(res) {
             $scope.project = res;
@@ -73,18 +74,52 @@ angular.module('ogcApp')
               });
           };
 
+        $scope.AddFile = function(file) {
+
+            if(typeof file === 'undefined') {
+              file = {};
+            }
+            else if (file.comment.length > 0) {
+              // add a comment
+              $scope.newsEditorEnabled=!$scope.newsEditorEnabled;
+              $scope.AddNewsItem({'item' : file.comment });
+            }
+
+            console.log($scope.FileData);
+            console.log(file);
+
+            $scope.fileEditorEnabled=!$scope.fileEditorEnabled;
+            file.name = $scope.FileData.filename;
+
+            if (!(_.has($scope.project, 'files'))){
+              $scope.project.files = $scope.files;
+            }
+
+            var user = 1;
+            var datetimeNow = new Date();
+            var userTimeStamp = {'u' : user, 'cd' : datetimeNow};
+
+            // add timestamp to file
+            var newFile = _.assign(file, userTimeStamp);
+            $scope.project.files.push(newFile);
+            $scope.project._id = $routeParams.id;
+            $scope.project.$update(function() {
+                console.log('saved');
+              });
+          };
+
         $scope.onFileSelect = function($files) {
             console.log($files[0].name);
             for (var i = 0; i < $files.length; i++) {
               var file = $files[i];
               $scope.upload = $upload.upload({
                   url: '/api/files/addfile',
-                  data: {myObj: $scope.myModelObj},
+                  data: {projectId: $routeParams.id},
                   file: file
                 }).progress(function(evt) {
                     console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
                   }).success(function(data, status, headers, config) {
-                    console.log(data);
+                    $scope.FileData = data;
                   });
               console.log('add file location to project');
             }

@@ -96,13 +96,14 @@
             <div class="form-group">
                 <label for="fileDescription"></label>
                 <textarea class="form-control" id="fileDescription" data-ng-model="file.comment"  placeholder="Add a Comment" rows="3"></textarea>
+                {{FileData.filename}}
                 <br>
                 <span class="btn btn-default fileinput-button">
                     <i class="fa fa-file"></i>
                     <input type="file" ng-file-select="onFileSelect($files)" >
                     <span> Select a File</span>
                 </span>
-                <span class="btn btn-default fileinput-button" data-ng-click="linkSelected=!linkSelected">
+                <span class="btn btn-default" data-ng-click="linkSelected=!linkSelected">
                     <i class="fa fa-link" ></i>
                     <span> Add a Link</span>
                 </span>
@@ -113,13 +114,15 @@
                 </span>
                 <br>
             </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary" data-ng-click="AddURL(file)">Save</button>
+            <div class="form-actions" data-ng-show="FileData.filename || file.url">
+                <button type="submit" class="btn btn-primary" data-ng-click="AddFile(file)">Save</button>
                 <button type="submit" class="btn" data-ng-click="AddURL(file)">Save and Add more</button>
                 <button type="reset" class="btn" ng-click="fileEditorEnabled=!fileEditorEnabled">Cancel</button>
                 <p></p>
             </div>
         </form>
+        <!--Use Directive to show all Tasks-->
+        <div ogc-file-list files="project.files"></div>
     </div>
 </div>
 
