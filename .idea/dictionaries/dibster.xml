@@ -4,13 +4,16 @@
       <w>addfile</w>
       <w>addpicture</w>
       <w>bson</w>
+      <w>docx</w>
       <w>dropdown</w>
       <w>fieldtypes</w>
       <w>fileinput</w>
       <w>lodash</w>
       <w>mongo</w>
       <w>objecttypes</w>
+      <w>pptx</w>
       <w>projectsforuser</w>
+      <w>xlxs</w>
     </words>
   </dictionary>
 </component>

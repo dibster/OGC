@@ -97,7 +97,8 @@ angular.module('ogcApp')
                 file.isImage = $scope.FileData.isImage;
                 file.isOffice = $scope.FileData.isOffice;
                 file.url = $scope.FileData.targetPath;
-
+                file.thumbnailUrl = response.thumbnailUrl;
+                console.log('response thumbnail' + JSON.stringify(response));
 
                 if (!(_.has($scope.project, 'files'))){
                   $scope.project.files = $scope.files;
@@ -112,7 +113,6 @@ angular.module('ogcApp')
                 $scope.project.files.push(newFile);
                 $scope.project._id = $routeParams.id;
                 $scope.project.$update(function() {
-                    console.log('saved');
                     $scope.FileData = {};
                     $scope.file = {};
                   });
