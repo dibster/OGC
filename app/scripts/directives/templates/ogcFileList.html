@@ -5,10 +5,10 @@
                 <div class="col-md-12">
                     <div class="row">
                         <div class="col-md-1" data-ng-show="!file.isImage">
-                            <span><i class="fa fa-file" ></i></span>
+                            <span></span>
                         </div>
                         <div class="col-md-1" data-ng-show="file.isImage">
-                            <span><i class="fa fa-picture-o" ></i></span>
+                            <span><img src="{{file.thumbnailUrl}}" alt="{{file.name}}" height="24" width="24" class="img-rounded"></span>
                         </div>
                         <div class="col-md-9">
                             <span>{{file.name}}</span>
