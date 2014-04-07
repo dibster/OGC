@@ -34,6 +34,10 @@ angular.module('ogcApp', [
         templateUrl: 'partials/project.html',
         controller: 'ProjectCtrl'
       })
+    .when('/projectfiles/:id', {
+        templateUrl: 'partials/projectfiles.html',
+        controller: 'FileCtrl'
+      })
     .when('/project/:id', {
         templateUrl: 'partials/projectDashboard.html',
         controller: 'ProjectDashBoardCtrl'
