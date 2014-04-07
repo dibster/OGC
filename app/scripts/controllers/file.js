@@ -8,7 +8,7 @@ angular.module('ogcApp')
 
         // get all file thumbnails for project
 
-        Projects.get({id : $scope.currentProjectId},function(res) {
+        Projects.get({id : $scope.projectId},function(res) {
             $scope.files = res.files;
           });
       });
