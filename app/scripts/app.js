@@ -10,6 +10,7 @@ angular.module('ogcApp', [
   'angularMoment',
   'angularFileUpload',
   'monospaced.elastic',
+  'akoenig.deckgrid',
   'ngRoute'
 ])
   .config(function ($routeProvider, $locationProvider) {
@@ -35,12 +36,16 @@ angular.module('ogcApp', [
         controller: 'ProjectCtrl'
       })
     .when('/projectfiles/:id', {
-        templateUrl: 'partials/projectfiles.html',
-        controller: 'FileCtrl'
+        templateUrl: '../views/partials/projectFileGrid.html',
+        controller: 'FileGridCtrl'
       })
     .when('/project/:id', {
         templateUrl: 'partials/projectDashboard.html',
         controller: 'ProjectDashBoardCtrl'
+      })
+    .when('/file/:id', {
+        templateUrl: 'partials/file.html',
+        controller: 'FileCtrl'
       })
     .when('/projectcopy/:id', {
         templateUrl: 'partials/projectCopy.html',

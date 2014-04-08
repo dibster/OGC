@@ -11,7 +11,8 @@
                             <span><img src="{{file.thumbnailUrl}}" alt="{{file.name}}" height="24" width="24" class="img-rounded"></span>
                         </div>
                         <div class="col-md-9">
-                            <span>{{file.name}}</span>
+                            <!--<span>{{file.name}}</span>-->
+                            <a data-ng-href="#/file/{{file.fileId}}">{{file.name}}</a>
                         </div>
                         <div class="col-md-2">
                             <span>{{file.who}}</span>

@@ -18,6 +18,7 @@
     "angular-route": "1.2.10",
     "ng-table": "*",
     "ng-file-upload" : "*",
+    "angular-deckgrid" : "*",
     "angular-elastic" : "*"
   },
   "devDependencies": {
