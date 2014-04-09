@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ProjectCopyCtrl', function ($scope, Objects, $location, $routeParams,  ObjectTypes, ObjectDefinitionForType, SimilarProjects, ProjectTypes, SearchResults, ngTableParams, Projects, CopyProject ) {
+    .controller('ProjectCopyCtrl', function ($scope, Objects, $location, $routeParams,  CurrentProject, ObjectTypes, ObjectDefinitionForType, SimilarProjects, ProjectTypes, SearchResults, ngTableParams, Projects, CopyProject ) {
 
         $scope.columnCollection = [];
         $scope.projectDefinition = {};
@@ -31,6 +31,7 @@ angular.module('ogcApp')
 
         Projects.get({id : $routeParams.id},function(project) {
             $scope.project = project;
+            CurrentProject.project = project;
             // get the view fields
             ObjectDefinitionForType.get({type: $scope.project.Type}, function (objectDefinition) {
                 $scope.projectDefinition = objectDefinition;

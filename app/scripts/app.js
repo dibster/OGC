@@ -47,6 +47,10 @@ angular.module('ogcApp', [
         templateUrl: 'partials/file.html',
         controller: 'FileCtrl'
       })
+    .when('/smartlist/:id', {
+        templateUrl: 'partials/smartlist.html',
+        controller: 'SmartListCtrl'
+      })
     .when('/projectcopy/:id', {
         templateUrl: 'partials/projectCopy.html',
         controller: 'ProjectCopyCtrl'

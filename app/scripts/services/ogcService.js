@@ -20,6 +20,10 @@ angular.module('ogcApp')
         return $resource(url + 'api/projects/types', {});
       })
 
+    .factory('SmartLists', function($resource){
+        return $resource(url + 'api/smartlists/:id', {});
+      })
+
     .factory('SimilarProjects', function($resource){
         return $resource(url + 'api/match/project/:id', {});
       })
@@ -46,6 +50,10 @@ angular.module('ogcApp')
       })
 
     .factory('SearchResults', function(){
+        return {};
+      })
+
+    .factory('CurrentProject', function(){
         return {};
       })
 

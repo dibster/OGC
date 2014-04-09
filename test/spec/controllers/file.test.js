@@ -51,5 +51,4 @@ describe('FileCtrl', function(){
         expect(scope.file.news.length).toBe(1);
       });
 
-
   });
