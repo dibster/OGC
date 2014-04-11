@@ -1,13 +1,17 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('SmartListsCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
+    .controller('SmartListCtrl', function ($scope, $routeParams, CurrentProject, ListTypes,  PrepareRecord, $modal, Projects, ngTableParams) {
 
-        $scope.newsItem = {};
-        $scope.newsItem.item = 'This is a piece of news and it will go over a few lines just to see what the format is like';
-        $scope.newsItem.u = 'animal';
-        $scope.newsItem.cd = new Date();
+        $scope.currentProjectId = $routeParams.id;
 
+        Projects.get({id : $scope.currentProjectId},function(res) {
+            $scope.project = res;
+          });
+
+        ListTypes.query(function(response) {
+            $scope.listTypes = response;
+          });
 
       });
 

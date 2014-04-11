@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ProjectDashBoardCtrl', function ($scope, $routeParams, $upload, Objects, Files, ObjectTypes, ProjectTypes, SearchResults,  SimilarProjects, PrepareRecord, $modal, Projects) {
+    .controller('ProjectDashBoardCtrl', function ($scope, $routeParams, CurrentProject, $upload, Objects, Files, ObjectTypes, ProjectTypes, SearchResults,  SimilarProjects, PrepareRecord, $modal, Projects) {
 
         $scope.newsItems = [];
         $scope.tasks = [];
@@ -13,6 +13,7 @@ angular.module('ogcApp')
 
         Projects.get({id : $scope.currentProjectId},function(res) {
             $scope.project = res;
+            CurrentProject.project = $scope.project;
             var currentTime = new Date().getTime();
             var projectCreateTime = new Date($scope.project.cd).getTime();
             var timeDiff = currentTime - projectCreateTime;

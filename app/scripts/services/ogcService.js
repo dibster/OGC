@@ -20,6 +20,10 @@ angular.module('ogcApp')
         return $resource(url + 'api/projects/types', {});
       })
 
+    .factory('ListTypes', function($resource){
+        return $resource(url + 'api/smartlisttypes', {});
+      })
+
     .factory('SmartLists', function($resource){
         return $resource(url + 'api/smartlists/:id', {});
       })
