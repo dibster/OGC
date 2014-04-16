@@ -23,8 +23,11 @@ angular.module('ogcApp')
             $scope.object = new Objects({
                 name: $scope.newObject.name,
                 type: $scope.search.type,
-                template : false
+                template : false,
+                views : [{name : 'Create', fields : []},{name : 'Edit', fields : []},{name : 'Show', fields : []},{name : 'List', fields : []},{name : 'Dashboard', fields : []}]
               });
+
+
             $scope.objects.push($scope.object);
             $scope.newObject.name = '';
             $scope.object = $scope.object.$save(function(response) {
