@@ -13,9 +13,7 @@ angular.module('ogcApp')
 
         ListTypes.query(function(response) {
             $scope.listTypes = response;
-            SmartLists.get({id : $scope.currentProjectId, type: $scope.listTypes[0]},function(res) {
-                $scope.smartLists = res;
-              });
+            $scope.filterByListType($scope.listTypes[0]);
           });
 
         // Set the table properties
@@ -40,6 +38,7 @@ angular.module('ogcApp')
             $scope.items = [];
             // get the project Data
             SmartLists.get({id : $scope.currentProjectId},function(response) {
+                $scope.smartLists = response;
                 $scope.listItems = response[searchObject.Type];
               });
           };
