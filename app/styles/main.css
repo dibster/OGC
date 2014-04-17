@@ -120,6 +120,10 @@ body {
     float:left;
 }
 
+.reviewApproved {
+     color:darkgreen;
+}
+
 .photo {
     /*background:#fff url(images/spinner.gif) center 30px no-repeat;*/
     border:1px solid rgba(0, 0, 0, .15);
@@ -219,4 +223,16 @@ only screen and (max-width : 480px) {
     .deckgrid[deckgrid]::before {
         content: '1 .column.size-1-1';
     }
+}
+.reviewApproved {
+    color:darkgreen;
+}
+.reviewChanges {
+    color: darkorange;
+}
+.reviewRejected {
+    color: darkred;
+}
+.overdueDate {
+    color: darkred;
 }

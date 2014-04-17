@@ -80,7 +80,6 @@ angular.module('ogcApp')
         var ModalInstanceCtrl = function($scope,$modalInstance, items) {
 
             $scope.items = items;
-            $scope.bannertypes = ['40K Banner', 'Static Banner', '100K Banner'];
 
             $scope.ok = function () {
                 $modalInstance.close($scope.items);

@@ -11,7 +11,8 @@
 
 <div class="row">
     <div class="col-md-6">
-        <h5>View</h5>
+        File
+        <hr>
         <iframe class="iframe" width="100%" height="600px" src="http://docs.google.com/gview?url=https://dl.dropboxusercontent.com/u/23432794/Clarizen-Analyst-Review-October-2011.pdf&embedded=true" frameborder="0"></iframe>
     </div>
 
@@ -32,5 +33,24 @@
         </form>
         <!--Use Directive to show all news Items-->
         <div ogc-news-item newsitems="file.news"></div>
+        <hr>
+        Reviews
+        <i class="fa fa-plus-square pull-right" ng-click="reviewEditorEnabled=!reviewEditorEnabled"></i>
+        <hr>
+        <form role="form" ng-show="reviewEditorEnabled">
+            <div class="form-group">
+                <label for="reviewRequest"></label>
+                <textarea class="form-control" id="reviewRequest" data-ng-model="review.request" placeholder="Note"  rows="2"></textarea>
+                <br>
+                <input type="text" class="form-control" placeholder="When" datepicker-popup="dd-MM-yy" show-weeks="0" datepicker-options="dateOptions" data-ng-model="review.date">
+                <br>
+                <input type="text" class="form-control" placeholder="Who" data-ng-model="review.who">
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-ng-click="AddReviewItem(review)">Add</button>
+                <button type="reset" class="btn" ng-click="reviewEditorEnabled=!reviewEditorEnabled">Cancel</button>
+                <p></p>
+            </div>
+        </form>
     </div>
 </div>

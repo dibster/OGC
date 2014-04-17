@@ -49,7 +49,7 @@
                     <span data-ng-show="$index ==0"><a data-ng-href="#/project/{{project._id}}">{{item[column.name]}}</a></span>
                         <span data-ng-show="$index !=0">
                             <span data-ng-switch on="column.type">
-                                <span data-ng-switch-when="Date" am-time-ago="item[column.name]"></span>
+                                <span data-ng-switch-when="Date">{{item[column.name] | date:'dd MMM'}}</span>
                                 <span data-ng-switch-default>{{item[column.name]}}</span>
                             </span>
                         </span>
