@@ -16,17 +16,18 @@
                                   <i class="fa fa-clock-o overdueDate"></i>
                                 </span>
                                 <span data-ng-show="review.decision=='Approved'">
-                                  <i class="fa fa-smile-o reviewApproved"></i>
+                                  <i class="fa fa-circle reviewApproved"></i>
                                 </span>
                                 <span data-ng-show="review.decision=='Changes'">
-                                  <i class="fa fa-meh-o reviewChanges"></i>
+                                  <i class="fa fa-circle reviewChanges"></i>
                                 </span>
                                 <span data-ng-show="review.decision=='Rejected'">
-                                  <i class="fa fa-frown-o reviewRejected"></i>
+                                  <i class="fa fa-circle reviewRejected"></i>
                                 </span>
                             </div>
                             <div class="col-md-9">
-                                <span class="review{{review.decision}}">{{review.request}}</span><br>
+                                <span>{{review.request}}</span><br>
+                                <!--<span class="review{{review.decision}}">{{review.request}}</span><br>-->
                             </div>
                             <div class="col-md-2">
                                 <span>{{review.who}}</span>
@@ -55,13 +56,15 @@
                                         <textarea class="form-control" id="comment" data-ng-model="review.comment" rows="2"></textarea>
                                     </div>
                                     <div class="form-actions">
-                                        <button type="submit" class="btn btn-success btn-xs" data-ng-click="setReviewStatus('Approved')">Approved</button>
-                                        <button type="submit" class="btn btn-warning btn-xs" data-ng-click="setReviewStatus('Changes')">Needs Changes</button>
-                                        <button type="submit" class="btn btn-danger btn-xs" data-ng-click="setReviewStatus('Rejected')">Rejected</button>
+                                        <button type="submit" class="btn btn-success btn-xs" data-ng-click="setReviewStatus('Approved')">Approve</button>
+                                        <button type="submit" class="btn btn-warning btn-xs" data-ng-click="setReviewStatus('Changes')">Approve with Changes</button>
+                                        <button type="submit" class="btn btn-danger btn-xs" data-ng-click="setReviewStatus('Rejected')">Reject</button>
                                         <p></p>
                                     </div>
                                 </form>
                             </div>
+                            <br>
+                            <div class="col-md-2"><i class="fa fa-paperclip"></i></div>
                         </div>
                     </div>
                 </li>
