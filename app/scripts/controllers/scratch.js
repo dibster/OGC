@@ -1,7 +1,10 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ScratchCtrl', function ($scope, Objects, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
+    .controller('ScratchCtrl', function ($scope, Objects, SayToConsole, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
+
+        SayToConsole.hello('dave');
+        SayToConsole.bye('dave');
 
         $scope.dateNow = new Date();
         $scope.reviews = [];
@@ -43,5 +46,5 @@ angular.module('ogcApp')
 
 
 
-    });
+      });
 

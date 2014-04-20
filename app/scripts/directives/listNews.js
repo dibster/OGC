@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('ogcApp')
-    .directive('ogcNewsItem', function () {
+    .directive('listNews', function () {
         return {
-            templateUrl: 'scripts/directives/templates/ogcNewsItem.html',
+            templateUrl: 'scripts/directives/templates/listNews.html',
             scope: {
                 newsItems: '=newsitems'
               },

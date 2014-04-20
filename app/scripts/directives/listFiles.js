@@ -1,11 +1,11 @@
 'use strict';
 
 angular.module('ogcApp')
-    .directive('ogcTaskList', function () {
+    .directive('listFiles', function () {
         return {
-            templateUrl: 'scripts/directives/templates/ogcTaskList.html',
+            templateUrl: 'scripts/directives/templates/listFiles.html',
             scope: {
-                tasks: '=tasks'
+                files : '=files'
               },
               link: function LinkingFunction(scope) {
               }

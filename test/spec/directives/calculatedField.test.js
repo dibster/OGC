@@ -1,6 +1,6 @@
 'use strict';
 
-describe('Directive: ogcCalculatedField', function () {
+describe('Directive: calculatedField', function () {
 
     // load the directive's module
     beforeEach(module('ogcApp'));

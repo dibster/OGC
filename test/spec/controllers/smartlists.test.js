@@ -9,7 +9,7 @@ describe('SmartListCtrl', function(){
     //mock the controller for the same reason and include $rootScope and $controller
     beforeEach(inject(function($rootScope, $controller, _$httpBackend_){
         $httpBackend = _$httpBackend_;
-        $httpBackend.when('GET', 'http://localhost:9000/api/smartlisttypes').respond([{name : 'Budget'},{name : 'Invoice'}]);
+        $httpBackend.when('GET', 'http://localhost:9000/api/smartlisttypes').respond([{name : 'Budget', views : [{name : 'Create'},{name : 'Create'},{name : 'Create'},{name : 'Create'}]},{name : 'Invoice'}]);
         $httpBackend.when('GET', 'http://localhost:9000/api/projects/5').respond({id: 5, name: 'Campaign', news : [{item : 'This is a news Item'}]});
         $httpBackend.when('GET', 'http://localhost:9000/api/smartlists/5').respond([{id: 5, name: 'Invoice'},{id: 5, name: 'Invoice'}]);
 

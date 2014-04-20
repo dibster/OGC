@@ -40,7 +40,6 @@ angular.module('ogcApp')
         return $resource(url + 'api/files/:id', {id:'@_id'}, {update:{method: 'PUT'}});
       })
 
-
     .factory('CopyProject', function($resource){
         return $resource(url + 'api/project/copy/:id', {id:'@_id'}, {update:{method: 'PUT'}});
       })
@@ -57,31 +56,18 @@ angular.module('ogcApp')
         return {};
       })
 
-    .factory('CurrentProject', function(){
-        return {};
+    .factory('SayToConsole', function(){
+        return {
+            hello : function(word) {
+                console.log('hello ' + word);
+              },
+            bye : function(word) {
+                console.log('bye ' + word);
+              }
+          };
       })
 
-    .service('PrepareRecord', function() {
-        this.getRecord = function(formData, type) {
-            var jsonRecord = {'Type' : type};
-            formData.forEach(function(field) {
-                if (field.content !== null) {
-                  var fieldname = field.name;
-                  jsonRecord[fieldname] = field.content;
-                }
-              });
-            return jsonRecord;
-          };
-      })
-      .service('PrepareSmartListRecord', function() {
-        this.getRecord = function(formData, type) {
-            var jsonRecord = {'ListType' : type};
-            formData.forEach(function(field) {
-                if (field.content !== null) {
-                  var fieldname = field.name;
-                  jsonRecord[fieldname] = field.content;
-                }
-              });
-            return jsonRecord;
-          };
+    .factory('CurrentProject', function(){
+        return {};
       });
+
