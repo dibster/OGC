@@ -1,0 +1,66 @@
+<div>
+    <div class="row">
+        <ul class="list-unstyled">
+            <li data-ng-repeat="review in reviews | orderBy:'date':false track by $index">
+                <div class="col-md-12">
+                    <div class="row">
+                        <div class="col-md-1">
+                                <span data-ng-show="dateIsOverDue(review)">
+                                  <i class="fa fa-clock-o overdueDate"></i>
+                                </span>
+                                <span data-ng-show="review.decision=='Approved'">
+                                  <i class="fa fa-circle reviewApproved"></i>
+                                </span>
+                                <span data-ng-show="review.decision=='Changes'">
+                                  <i class="fa fa-circle reviewChanges"></i>
+                                </span>
+                                <span data-ng-show="review.decision=='Rejected'">
+                                  <i class="fa fa-circle reviewRejected"></i>
+                                </span>
+                        </div>
+                        <div class="col-md-9">
+                            <span>{{review.request}}</span><br>
+                            <!--<span class="review{{review.decision}}">{{review.request}}</span><br>-->
+                        </div>
+                        <div class="col-md-2">
+                            <span>{{review.who}}</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-9">
+                                <span data-ng-show="dateIsOverDue(review)">
+                                   <button type="button" class="btn btn-danger btn-xs" data-ng-click="decisionEditorEnabled=!decisionEditorEnabled">Decision</button>
+                                </span>
+                                <span data-ng-show="!dateIsOverDue(review)">
+                                   <button type="button" class="btn btn-primary btn-xs" data-ng-click="decisionEditorEnabled=!decisionEditorEnabled">Decision</button>
+                                </span>
+                        </div>
+                        <div class="col-md-2">
+                            <h4><small> {{review.date | date:'dd MMM'}}</small></h4>
+                        </div>
+                    </div>
+                    <div class="row" ng-show="decisionEditorEnabled">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-9">
+                            <form role="form" >
+                                <div class="form-group">
+                                    <label for="comment"></label>
+                                    <textarea class="form-control" id="comment" data-ng-model="review.comment" rows="2"></textarea>
+                                </div>
+                                <div class="form-actions">
+                                    <button type="submit" class="btn btn-success btn-xs" data-ng-click="setReviewStatus('Approved')">Approve</button>
+                                    <button type="submit" class="btn btn-warning btn-xs" data-ng-click="setReviewStatus('Changes')">Approve with Changes</button>
+                                    <button type="submit" class="btn btn-danger btn-xs" data-ng-click="setReviewStatus('Rejected')">Reject</button>
+                                    <p></p>
+                                </div>
+                            </form>
+                        </div>
+                        <br>
+                        <div class="col-md-2"><i class="fa fa-paperclip"></i></div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

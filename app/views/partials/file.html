@@ -32,7 +32,7 @@
             </div>
         </form>
         <!--Use Directive to show all news Items-->
-        <div ogc-news-item newsitems="file.news"></div>
+        <div list-news newsitems="file.news"></div>
         <hr>
         Reviews
         <i class="fa fa-plus-square pull-right" ng-click="reviewEditorEnabled=!reviewEditorEnabled"></i>
@@ -52,5 +52,6 @@
                 <p></p>
             </div>
         </form>
+        <div list-reviews reviews="file.reviews"></div>
     </div>
 </div>

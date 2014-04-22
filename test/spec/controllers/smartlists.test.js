@@ -35,5 +35,4 @@ describe('SmartListCtrl', function(){
         expect(scope.listTypes.length).toBe(2);
       });
 
-
   });

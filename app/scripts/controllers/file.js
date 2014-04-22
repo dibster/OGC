@@ -6,6 +6,7 @@ angular.module('ogcApp')
         $scope.file = {};
         $scope.fileId = $routeParams.id;
         $scope.newsItems = [];
+        $scope.reviews = [];
 
         // get all file thumbnails for project
 
@@ -38,5 +39,25 @@ angular.module('ogcApp')
                 console.log('saved');
               });
           };
-        
+
+        $scope.AddReviewItem = function(review) {
+
+            $scope.reviewEditorEnabled=!$scope.reviewEditorEnabled;
+
+            if (!(_.has($scope.file, 'reviews'))){
+              $scope.file.reviews = $scope.reviews;
+            }
+
+            var user = 1;
+            var datetimeNow = new Date();
+            var userTimeStamp = {'u' : user, 'cd' : datetimeNow};
+
+            // add timestamp to task
+            var newReviewItem = _.assign(review, userTimeStamp);
+            $scope.file.reviews.push(newReviewItem);
+            $scope.file._id = $routeParams.id;
+            $scope.file.$update(function() {
+                console.log('saved');
+            });
+        };
       });
