@@ -3,6 +3,9 @@
 angular.module('ogcApp')
     .controller('ScratchCtrl', function ($scope, Objects, SayToConsole, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
 
+        SayToConsole.hello('dave');
+        SayToConsole.bye('dave');
+
         $scope.dateNow = new Date();
         $scope.reviews = [];
         $scope.review = {};
@@ -35,8 +38,10 @@ angular.module('ogcApp')
         $scope.reviews.push($scope.review);
 
         $scope.dateIsOverDue = function(review) {
-            return review.date < $scope.dateNow && review.decision.length === 0;
-
+            if (review.date < $scope.dateNow && review.decision.length === 0) {
+              return true;
+            }
+            return false;
           };
 
 

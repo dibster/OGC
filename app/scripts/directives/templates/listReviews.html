@@ -29,6 +29,12 @@
                     <div class="row">
                         <div class="col-md-1"></div>
                         <div class="col-md-9">
+                            <strong>{{review.comment}}</strong>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-9">
                                 <span data-ng-show="dateIsOverDue(review)">
                                    <button type="button" class="btn btn-danger btn-xs" data-ng-click="decisionEditorEnabled=!decisionEditorEnabled">Decision</button>
                                 </span>
@@ -49,9 +55,9 @@
                                     <textarea class="form-control" id="comment" data-ng-model="review.comment" rows="2"></textarea>
                                 </div>
                                 <div class="form-actions">
-                                    <button type="submit" class="btn btn-success btn-xs" data-ng-click="setReviewStatus('Approved')">Approve</button>
-                                    <button type="submit" class="btn btn-warning btn-xs" data-ng-click="setReviewStatus('Changes')">Approve with Changes</button>
-                                    <button type="submit" class="btn btn-danger btn-xs" data-ng-click="setReviewStatus('Rejected')">Reject</button>
+                                    <button type="submit" class="btn btn-success btn-xs" data-ng-click="setReviewStatus(review, review.comment, 'Approved')">Approve</button>
+                                    <button type="submit" class="btn btn-warning btn-xs" data-ng-click="setReviewStatus(review, review.comment, 'Changes')">Approve with Changes</button>
+                                    <button type="submit" class="btn btn-danger btn-xs" data-ng-click="setReviewStatus(review, review.comment,'Rejected')">Reject</button>
                                     <p></p>
                                 </div>
                             </form>

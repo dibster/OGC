@@ -42,6 +42,8 @@ angular.module('ogcApp')
 
         $scope.AddReviewItem = function(review) {
 
+            review.decision = '';
+
             $scope.reviewEditorEnabled=!$scope.reviewEditorEnabled;
 
             if (!(_.has($scope.file, 'reviews'))){
@@ -58,6 +60,6 @@ angular.module('ogcApp')
             $scope.file._id = $routeParams.id;
             $scope.file.$update(function() {
                 console.log('saved');
-            });
-        };
+              });
+          };
       });
