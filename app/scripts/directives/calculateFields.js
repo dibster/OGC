@@ -8,11 +8,11 @@ angular.module('ogcApp')
                 calculation: '=calculation',
                 project: '=project'
               },
-              link: function LinkingFunction(scope) {
+              controller: function ($scope) {
                   try {
-                    scope.result = eval('scope.project.' + scope.calculation);
+                    $scope.result = eval('$scope.project.' + $scope.calculation);
                   } catch (e) {
-                      scope.result = '';
+                      $scope.result = '';
                     }
                 }
             };

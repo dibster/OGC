@@ -7,7 +7,7 @@ angular.module('ogcApp')
             scope: {
                 files : '=files'
               },
-              link: function LinkingFunction(scope) {
+              controller: function ($scope) {
               }
             };
       });

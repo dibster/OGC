@@ -59,8 +59,10 @@ angular.module('ogcApp')
             $scope.taskEditorEnabled=!$scope.taskEditorEnabled;
 
             if (!(_.has($scope.project, 'tasks'))){
-                $scope.project.tasks = $scope.tasks;
+              $scope.project.tasks = $scope.tasks;
             }
+
+            task.status = 'Open';
 
             var user = 1;
             var datetimeNow = new Date();

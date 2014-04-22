@@ -7,38 +7,42 @@ angular.module('ogcApp')
         SayToConsole.bye('dave');
 
         $scope.dateNow = new Date();
-        $scope.reviews = [];
-        $scope.review = {};
-        $scope.review.request = 'Let me have feedback please';
-        $scope.review.who = 'Dave';
-        $scope.review.decision = 'Rejected';
-        $scope.review.date = new Date();
-        $scope.review.date.setDate($scope.review.date.getDate() + 1);
-        $scope.reviews.push($scope.review);
-        $scope.review = {};
-        $scope.review.request = 'Let me have feedback please';
-        $scope.review.who = 'Dave';
-        $scope.review.decision = '';
-        $scope.review.date = new Date();
-        $scope.review.date.setDate($scope.review.date.getDate() + 1);
-        $scope.reviews.push($scope.review);
-        $scope.review = {};
-        $scope.review.request = 'Let me have feedback please';
-        $scope.review.who = 'Dave';
-        $scope.review.decision = 'Changes';
-        $scope.review.date = new Date();
-        $scope.review.date.setDate($scope.review.date.getDate() + 1);
-        $scope.reviews.push($scope.review);
-        $scope.review = {};
-        $scope.review.request = 'Let me have feedback please 2';
-        $scope.review.who = 'Dave';
-        $scope.review.decision = '';
-        $scope.review.date = new Date();
-        $scope.review.date.setDate($scope.review.date.getDate() - 1);
-        $scope.reviews.push($scope.review);
+        $scope.tasks = [];
+        $scope.task = {};
+        $scope.task.name = 'Let me have feedback please';
+        $scope.task.who = 'Dave';
+        $scope.task.status = 'Open';
+        $scope.task.decision = 'Rejected';
+        $scope.task.date = new Date();
+        $scope.task.date.setDate($scope.task.date.getDate() + 1);
+        $scope.tasks.push($scope.task);
+        $scope.task = {};
+        $scope.task.name = 'Let me have feedback please';
+        $scope.task.who = 'Dave';
+        $scope.task.decision = '';
+        $scope.task.date = new Date();
+        $scope.task.date.setDate($scope.task.date.getDate() + 1);
+        $scope.task.status = 'Open';
+        $scope.tasks.push($scope.task);
+        $scope.task = {};
+        $scope.task.name = 'Let me have feedback please';
+        $scope.task.who = 'Dave';
+        $scope.task.decision = 'Changes';
+        $scope.task.date = new Date();
+        $scope.task.status = 'Open';
+        $scope.task.date.setDate($scope.task.date.getDate() + 1);
+        $scope.tasks.push($scope.task);
+        $scope.task = {};
+        $scope.task.name = 'Let me have feedback please 2';
+        $scope.task.who = 'Dave';
+        $scope.task.decision = '';
+        $scope.task.date = new Date();
+        $scope.task.status = 'Open';
+        $scope.task.date.setDate($scope.task.date.getDate() - 1);
+        $scope.tasks.push($scope.task);
 
-        $scope.dateIsOverDue = function(review) {
-            if (review.date < $scope.dateNow && review.decision.length === 0) {
+        $scope.dateIsOverDue = function(task) {
+            if (task.date < $scope.dateNow && task.decision.length === 0) {
               return true;
             }
             return false;

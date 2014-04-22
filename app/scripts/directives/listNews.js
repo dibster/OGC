@@ -7,7 +7,7 @@ angular.module('ogcApp')
             scope: {
                 newsItems: '=newsitems'
               },
-              link: function LinkingFunction(scope) {
+              controller: function ($scope) {
               }
             };
       });
