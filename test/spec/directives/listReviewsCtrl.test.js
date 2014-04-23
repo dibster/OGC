@@ -2,7 +2,7 @@
 
 describe('Directive Controller : listReviewsCtrl', function(){
 
-    var scope, $httpBackend, routeParams, modal, log;//we'll use these in our tests
+    var scope, $httpBackend, routeParams;//we'll use these in our tests
 
     //mock Application to allow us to inject our own dependencies
     beforeEach(module('ogcApp'));
@@ -33,7 +33,7 @@ describe('Directive Controller : listReviewsCtrl', function(){
 
         // check dates the same
         var review = {};
-        review.date = today
+        review.date = today;
         var result = scope.dateIsOverDue(review);
         expect(result).toBe(false);
 
@@ -41,7 +41,7 @@ describe('Directive Controller : listReviewsCtrl', function(){
         var yesterday = new Date();
         yesterday.setDate(today.getDate() - 1);
         var reviewyesterday = {};
-        reviewyesterday.date = yesterday
+        reviewyesterday.date = yesterday;
         reviewyesterday.decision='';
         result = scope.dateIsOverDue(reviewyesterday);
         expect(result).toBe(true);
@@ -64,7 +64,6 @@ describe('Directive Controller : listReviewsCtrl', function(){
         scope.setReviewStatus(review,comment,decision);
 
         expect(scope.reviews[0].decision).toBe('Approved');
-
 
       });
 

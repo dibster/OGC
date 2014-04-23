@@ -70,11 +70,45 @@ angular.module('ogcApp')
     .factory('ProjectStatus', function(){
         return {
             percentComplete : function(projectTasks) {
-                console.log('number of tasks : ' + projectTasks.length);
-                return 10;
+                // % complete will be
+                //
+                // Closed Tasks / All Tasks * 100
+                var allTasks = projectTasks.length;
+
+                // get counts for closed
+                var closedTasks = 0;
+                for (var i = 0;i<allTasks;i++) {
+                  if (projectTasks[i].status === 'Closed') {
+                    closedTasks++;
+                  }
+                }
+
+                var percentComplete = closedTasks / allTasks * 100;
+
+                return Math.round(percentComplete);
               },
             statusType : function(projectTasks) {
-                return 'danger';
+
+                // if tasks overdue return danger
+                // else if tasks due today return warning
+                // else return nothing
+
+                var returnStatus = '';
+                var today = new Date();
+                var isoDate = today.toISOString();
+                var numberOfTasks = projectTasks.length;
+                for (var i = 0;i<numberOfTasks;i++) {
+                  if (projectTasks[i].status === '') {
+                    if (projectTasks[i].date < isoDate) {
+                      return 'danger';
+                    }
+                    if (projectTasks[i].date.substring(0,11) === isoDate.substring(0,11)) {
+                      returnStatus = 'warning';
+                    }
+                  }
+                }
+
+                return returnStatus;
               }
           };
       })
