@@ -32,13 +32,6 @@ describe('Directive: fileList', function () {
         expect(element.text()).toContain('This is a review');
       }));
 
-    it('should show a date as overdue', inject(function ($compile, $rootScope) {
-        var review = {};
-        var today = new Date();
-        var yesterday = new Date();
-        yesterday.setDate(today.getDate() - 1);
-        review.date = yesterday;
-      }));
   });
 /**
  * Created by dibster on 14/03/14.
