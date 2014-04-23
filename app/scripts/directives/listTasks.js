@@ -11,22 +11,21 @@ angular.module('ogcApp')
 
                   $scope.closeTask = function(task) {
                       console.log('close task');
-                      // update task
-                      var numberOfTasks = $scope.tasks.length;
-                      for (var i = 0;i<numberOfTasks;i++) {
-                        if ($scope.tasks[i].cd === task.cd) {
-                          if ($scope.tasks[i].status === 'Closed') {
-                            $scope.tasks[i].status = 'Open';
-                          }
-                          else {
-                            $scope.tasks[i].status = 'Closed';
-                          }
-                        }
-                      }
+
                       Projects.get({id : $routeParams.id},function(res) {
                           $scope.project = res;
-                          // TODO make service
-                          $scope.project.tasks = $scope.tasks;
+                          var numberOfTasks = $scope.project.tasks.length;
+                          for (var i = 0;i<numberOfTasks;i++) {
+                            if ($scope.project.tasks[i].cd === task.cd) {
+                              if ($scope.project.tasks[i].status === 'Closed') {
+                                $scope.project.tasks[i].status = 'Open';
+                              }
+                              else {
+                                $scope.project.tasks[i].status = 'Closed';
+                              }
+                            }
+                          }
+
                           $scope.project.$update(function() {
                               console.log('saved');
                             });

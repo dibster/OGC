@@ -67,6 +67,18 @@ angular.module('ogcApp')
           };
       })
 
+    .factory('ProjectStatus', function(){
+        return {
+            percentComplete : function(projectTasks) {
+                console.log('number of tasks : ' + projectTasks.length);
+                return 10;
+              },
+            statusType : function(projectTasks) {
+                return 'danger';
+              }
+          };
+      })
+
     .factory('CurrentProject', function(){
         return {};
       });
