@@ -97,4 +97,13 @@ describe('ProjectStatusFactory', function(){
 
       });
 
+    it('should say handle undefined dates ', function(){
+
+        var projectTasks = [{name : 'task1', status : ''},
+            {name : 'task2', status : '', date : '2011-06-06T16:00:00.000Z'},
+            {name : 'task4', status : '', date : '2018-06-06T16:00:00.000Z'}];
+        var status = projectStatus.statusType(projectTasks);
+        expect(status).toBe('danger');
+      });
+
   });

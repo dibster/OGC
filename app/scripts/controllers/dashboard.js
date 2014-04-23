@@ -62,7 +62,7 @@ angular.module('ogcApp')
               $scope.project.tasks = $scope.tasks;
             }
 
-            task.status = 'Open';
+            task.status = '';
 
             var user = 1;
             var datetimeNow = new Date();

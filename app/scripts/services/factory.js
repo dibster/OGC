@@ -92,22 +92,24 @@ angular.module('ogcApp')
                 // if tasks overdue return danger
                 // else if tasks due today return warning
                 // else return nothing
-
                 var returnStatus = '';
                 var today = new Date();
+                today.setHours(1,0,0,0); // reset to midnight
                 var isoDate = today.toISOString();
+
                 var numberOfTasks = projectTasks.length;
                 for (var i = 0;i<numberOfTasks;i++) {
                   if (projectTasks[i].status === '') {
-                    if (projectTasks[i].date < isoDate) {
-                      return 'danger';
-                    }
-                    if (projectTasks[i].date.substring(0,11) === isoDate.substring(0,11)) {
-                      returnStatus = 'warning';
+                    if (typeof projectTasks[i].date !== 'undefined') {
+                      if (projectTasks[i].date < isoDate) {
+                        return 'danger';
+                      }
+                      if (projectTasks[i].date.substring(0, 11) === isoDate.substring(0, 11)) {
+                        returnStatus = 'warning';
+                      }
                     }
                   }
                 }
-
                 return returnStatus;
               }
           };

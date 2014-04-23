@@ -18,7 +18,7 @@ angular.module('ogcApp')
                           for (var i = 0;i<numberOfTasks;i++) {
                             if ($scope.project.tasks[i].cd === task.cd) {
                               if ($scope.project.tasks[i].status === 'Closed') {
-                                $scope.project.tasks[i].status = 'Open';
+                                $scope.project.tasks[i].status = '';
                               }
                               else {
                                 $scope.project.tasks[i].status = 'Closed';
