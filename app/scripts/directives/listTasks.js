@@ -27,7 +27,9 @@ angular.module('ogcApp')
                           }
 
                           $scope.project.$update(function() {
+                              $scope.tasks = $scope.project.tasks;
                               console.log('saved');
+
                             });
                         });
                     };

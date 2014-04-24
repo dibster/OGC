@@ -17,23 +17,23 @@
     </div>
 
     <div class="col-md-6">
-        News
-        <i class="fa fa-comment pull-right" ng-click="newsEditorEnabled=!newsEditorEnabled"></i>
-        <hr>
-        <form role="form" ng-show="newsEditorEnabled">
-            <div class="form-group">
-                <label for="newsItem"></label>
-                <textarea class="form-control" id="newsItem" data-ng-model="news.item"  rows="3"></textarea>
-            </div>
-            <div class="form-actions">
-                <button type="submit" class="btn btn-primary" data-ng-click="AddNewsItem(news)">Post</button>
-                <button type="reset" class="btn" ng-click="newsEditorEnabled=!newsEditorEnabled">Cancel</button>
-                <p></p>
-            </div>
-        </form>
-        <!--Use Directive to show all news Items-->
-        <div list-news newsitems="file.news"></div>
-        <hr>
+        <!--News-->
+        <!--<i class="fa fa-comment pull-right" ng-click="newsEditorEnabled=!newsEditorEnabled"></i>-->
+        <!--<hr>-->
+        <!--<form role="form" ng-show="newsEditorEnabled">-->
+            <!--<div class="form-group">-->
+                <!--<label for="newsItem"></label>-->
+                <!--<textarea class="form-control" id="newsItem" data-ng-model="news.item"  rows="3"></textarea>-->
+            <!--</div>-->
+            <!--<div class="form-actions">-->
+                <!--<button type="submit" class="btn btn-primary" data-ng-click="AddNewsItem(news)">Post</button>-->
+                <!--<button type="reset" class="btn" ng-click="newsEditorEnabled=!newsEditorEnabled">Cancel</button>-->
+                <!--<p></p>-->
+            <!--</div>-->
+        <!--</form>-->
+        <!--&lt;!&ndash;Use Directive to show all news Items&ndash;&gt;-->
+        <!--<div list-news newsitems="file.news"></div>-->
+        <!--<hr>-->
         Reviews
         <i class="fa fa-plus-square pull-right" ng-click="reviewEditorEnabled=!reviewEditorEnabled"></i>
         <hr>
