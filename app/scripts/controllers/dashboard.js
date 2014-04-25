@@ -8,7 +8,6 @@ angular.module('ogcApp')
         $scope.files = [];
         $scope.currentProjectId = $routeParams.id;
         $scope.alerts = [];
-        SearchResults = {};
         $scope.FileData = {};
 
         Projects.get({id : $scope.currentProjectId},function(res) {
@@ -134,7 +133,7 @@ angular.module('ogcApp')
                   file: file
                 }).progress(function(evt) {
                     console.log('percent: ' + parseInt(100.0 * evt.loaded / evt.total));
-                  }).success(function(data, status, headers, config) {
+                  }).success(function(data) {
                     $scope.FileData = data;
                   });
               console.log('add file location to project');

@@ -69,6 +69,7 @@
             </tr>
             </thead>
             <!--don't need to order by score as they come at the top anyway-->
+
             <tr ng-repeat="project in searchResults  | filter:search.filter">
                 <td ng-repeat="column in columnCollection" sortable="column.name">
                     <span data-ng-show="$index ==0"><a data-ng-click="getProjectSummary(project)">{{project[column.name]}}</a></span>

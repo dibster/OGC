@@ -8,13 +8,13 @@
         </ol>
     </div>
 </div>
-
 <div class="row">
     <div deckgrid class="deckgrid" source="files">
         <div class="a-card photo">
             <img class="photo-wrapper"  style="height:auto;max-width:100%" data-ng-src="{{card.thumbnailUrl}}">
             <div class = "photo-description">
-                <h4>{{card.name}}</h4>
+                <h4><a data-ng-href="#/file/{{card.fileId}}">{{card.name}}</a></h4>
+                {{card.reviews}}
             </div>
         </div>
     </div>

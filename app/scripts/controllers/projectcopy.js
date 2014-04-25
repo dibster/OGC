@@ -10,7 +10,7 @@ angular.module('ogcApp')
         $scope.alerts = [];
         $scope.project = {};
         $scope.projectSelected = false;
-        $scope.showAll = false;
+
         $scope.copyParms = {
             useWeekends : false,
             replaceAllTasks : false,
@@ -47,7 +47,8 @@ angular.module('ogcApp')
                     { type: 'success', msg: 'Have found ' + res.length + ' similar ' + $scope.searchResults[0].Type + 's. Closest match at the top' }
                   ];
                 if ($scope.searchResults.length > 0) {
-                        // get the columns for the list view
+                  // get the columns for the list view
+                  $scope.viewSettings.showAllFilterButton = true;
                   ObjectDefinitionForType.get({type: $scope.searchResults[0].Type}, function(res) {
                             $scope.columnCollection = res.views[3].fields;
                           });
@@ -129,10 +130,10 @@ angular.module('ogcApp')
 
           };
 
-        if (_.isEmpty($scope.searchResults)) {
-          $scope.showAll();
-          $scope.viewSettings.showAllFilterButton = false;
-        }
+//        if (_.isEmpty($scope.searchResults)) {
+//          $scope.showAll();
+//          $scope.viewSettings.showAllFilterButton = false;
+//        }
 
       });
 
