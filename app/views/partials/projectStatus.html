@@ -1,0 +1,132 @@
+<div data-ng-include="'partials/navbar'"></div>
+<!-- Action Buttons -->
+<div data-ng-include="'partials/alerts'"></div>
+
+<div class="row">
+    <div class="col-md-12">
+        <ol class="breadcrumb">
+            <li><a href="#/project/{{project._id}}">{{project.Title}}</a></li>
+            <li class="active">Status</li>
+        </ol>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Tasks</div>
+            <div class="panel-body">
+                <h5>
+                    <span class="label label-success">7 done</span>
+                    <span class="label label-danger">1 late</span>
+                    <span class="label label-info">3 left</span>
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Reviews</div>
+            <div class="panel-body">
+                <h5>
+                    <span class="label label-success">1 done</span>
+                    <span class="label label-danger">1 rejected</span>
+                    <span class="label label-info">3 waiting</span>
+                </h5>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Financial</div>
+            <div class="panel-body">
+                <div class="rows">
+                    <div class="col-md-6">
+                        <h3>
+                            Budget
+                        </h3>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>
+                            <strong>$12,000</strong>
+                        </h3>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>
+                            Forecast
+                        </h3>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>
+                            <strong class="ogcRed">$16,000</strong>
+                        </h3>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>
+                            Actual
+                        </h3>
+                    </div>
+                    <div class="col-md-6">
+                        <h3>
+                            <strong class="ogcRed">$14,000</strong>
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">New Team Message</div>
+            <div class="panel-body">
+
+                <form role="form">
+                    <div class="form-group">
+                        <label for="messageItem"></label>
+                        <textarea class="form-control" id="messageItem" data-ng-model="message.item"  rows="3"></textarea>
+                        <br>
+                        <input type="checkbox" data-ng-model="message.urgent"> Urgent
+                        <input type="checkbox" data-ng-model="message.email"> Send By Email
+
+                    </div>
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary" data-ng-click="postMessage(message)">Send</button>
+                        <p></p>
+                    </div>
+                </form>
+
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">High Priority Tasks</div>
+            <div class="panel-body">
+                <div list-tasks tasks="project.tasks"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Risks</div>
+            <div class="panel-body">
+                <span>
+                    <i class="fa fa-circle ogcRed"></i>
+                     Forecast Over Budget<br>
+                    <i class="fa fa-circle ogcOrange"></i>
+                     Banner Ads may not be ready for first day of Launch
+                </span>
+            </div>
+        </div>
+    </div>
+
+
+</div>

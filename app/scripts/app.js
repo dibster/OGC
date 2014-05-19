@@ -19,9 +19,17 @@ angular.module('ogcApp', [
       templateUrl: 'partials/main.html',
       controller: 'MainCtrl'
     })
-    .when('/config', {
+    .when('/configAdmin', {
         templateUrl: 'partials/config.html',
-        controller: 'ConfigCtrl'
+        controller: 'ConfigAdminCtrl'
+      })
+    .when('/configSmartLists', {
+        templateUrl: 'partials/configsmartlists.html',
+        controller: 'ConfigSmartListsCtrl'
+      })
+    .when('/configProjects', {
+        templateUrl: 'partials/configprojects.html',
+        controller: 'ConfigProjectsCtrl'
       })
     .when('/profile', {
         templateUrl: 'partials/profile.html',
@@ -34,6 +42,10 @@ angular.module('ogcApp', [
     .when('/project', {
         templateUrl: 'partials/project.html',
         controller: 'ProjectCtrl'
+      })
+    .when('/project/status/:id', {
+        templateUrl: 'partials/projectStatus.html',
+        controller: 'ProjectStatusCtrl'
       })
     .when('/projectfiles/:id', {
         templateUrl: '../views/partials/projectFileGrid.html',

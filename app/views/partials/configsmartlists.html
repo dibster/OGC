@@ -1,0 +1,41 @@
+<div data-ng-include="'partials/navbar'"></div>
+
+<div class="row">
+    <div class="col-md-10">
+        <form class="form-inline" role="form" data-ng-submit="create()">
+            <div class="form-group">
+                <label class="sr-only" for="newObject" >New Object</label>
+                <input id="newObject" placeholder="New Smart List ..." type="text" data-ng-model="newObject.name" class="form-control" autofocus="autofocus" value="{{newobject.name}}">
+            </div>
+        </form>
+    </div>
+    <div class="col-md-2">
+    </div>
+</div>
+<p></p>
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed">
+            <tr>
+                <th style="width: 30%">Name</th>
+                <th>Fields</th>
+                <th>Views</th>
+                <th></th>
+            </tr>
+
+            <tr data-ng-repeat="object in objects| filter:search:strict">
+                <td>
+                    <a data-ng-href="#/object/{{object._id}}/edit">{{object.name}}</a>
+                </td>
+                <td><span class="badge">{{object.fields.length}}</span></td>
+                <td><span class="badge">{{object.views.length}}</span></td>
+                <td><button type="button"  class="btn btn-warning btn-sm pull-right" data-ng-click="removeObject(object)"><i class="fa fa-trash-o"></i> Delete</button></td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+
+<div class="footer">
+    <p>{{objects.length}} Objects in Total Defined </p>
+</div>

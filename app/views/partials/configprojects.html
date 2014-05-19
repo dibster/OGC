@@ -1,0 +1,53 @@
+<div data-ng-include="'partials/navbar'"></div>
+
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Routes to Market</div>
+            <div class="panel-body">
+                <div data-ng-repeat="channelType in channelTypes" class="panel panel-default">
+                    <div data-ng-click="selectChannelType(channelType)" class="panel-heading"><i class="fa fa-square campaignColour{{channelType.name}}"></i> <span ng-class="{selectedItem: channelType._id === selectedItem}">{{channelType.name}}</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-9">
+        <form class="form-inline" role="form" data-ng-submit="create()">
+            <div class="form-group">
+                <label class="sr-only" for="newObject" >New Channel</label>
+                <input id="newObject" placeholder="New ..." type="text" data-ng-model="newObject.name" class="form-control" autofocus="autofocus">
+            </div>
+        </form>
+    </div>
+
+    <div class="col-md-9">
+        <table ng-table="tableParams" class="table">
+            <thead>
+            <tr>
+                <th data-ng-repeat="column in columnCollection">
+                    <div class="text-left">
+                        {{column.name}}
+                    </div>
+                </th>
+            </tr>
+            </thead>
+
+            <tr data-ng-repeat="project in projectTypes  | filter:searchObject.type">
+                <td data-ng-repeat="column in columnCollection" sortable="column.name">
+                    <span data-ng-show="$index ==0"><a data-ng-href="#/object/{{project._id}}/edit">{{project.name}}</a></span>
+                    <span data-ng-show="$index !=0">
+                        <span data-ng-switch on="column.type">
+
+                             <span class="badge" data-ng-switch-when="field">{{project.fields.length}}</span>
+                             <span class="badge" data-ng-switch-when="view">{{project.views.length}}</span>
+                             <!--<span data-ng-switch-default>{{project[column.name]}}</span>-->
+                        </span>
+                    </span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+

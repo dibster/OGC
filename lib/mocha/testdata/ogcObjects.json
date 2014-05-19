@@ -1,9 +1,10 @@
 [
     {
-        "name" : "Project",
-        "description": "Default Project Object ...",
+        "name" : "Facebook Page",
+        "description": "Face Book Project",
         "type" : "Project",
-        "template" : true,
+        "channel" : "Digital",
+        "template" : false,
         "fields" : [{"name" : "Title", "type" : "Text","req" : "y"},
             {"name" : "Description", "type" : "Note","req" : "n"},
             {"name" : "Start", "type" : "Date","req" : "n"},

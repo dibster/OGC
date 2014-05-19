@@ -13,7 +13,8 @@
     <div class="col-md-6">
         File
         <hr>
-        <iframe class="iframe" width="100%" height="600px" src="http://docs.google.com/gview?url=https://dl.dropboxusercontent.com/u/23432794/Clarizen-Analyst-Review-October-2011.pdf&embedded=true" frameborder="0"></iframe>
+        <iframe data-ng-show="file.isImage!==true" class="iframe" width="100%" height="600px" src="http://docs.google.com/gview?url=https://dl.dropboxusercontent.com/u/23432794/Clarizen-Analyst-Review-October-2011.pdf&embedded=true" frameborder="0"></iframe>
+        <img data-ng-show="file.isImage==true" src="{{file.targetPath}}" width="100%" >
     </div>
 
     <div class="col-md-6">

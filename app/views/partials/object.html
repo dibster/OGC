@@ -1,19 +1,26 @@
 <div data-ng-include="'partials/navbar'"></div>
 <div class="row">
     <div class="col-md-12">
-        <div class="col-md-10">
+        <div class="col-md-8">
             <ol class="breadcrumb">
-                <li><a href="#/config">Config</a></li>
+                <li><a href="#/configAdmin">Config</a></li>
                 <li class="active">{{object.name}}</li>
             </ol>
         </div>
+        <div class="col-md-1" data-ng-show="object.type === 'Project'">
+             <a data-ng-href="#/object/{{currentObjectId}}/Deliverables" class="btn"><i class="fa fa-list-ul"></i> Materials</a>
+        </div>
+        <div class="col-md-1" data-ng-show="object.type === 'Project'">
+            <a data-ng-href="#/object/{{currentObjectId}}/Templates" class="btn"><i class="fa fa-list-ul"></i> Templates</a>
+        </div>
+
         <div class="col-md-1">
             <div class="dropdown">
-
                 <button type="button" class="btn btn-link dropdown-toggle"><i class="fa fa-files-o"></i> Copy</button>
                 <ul class="dropdown-menu">
                     <li ng-repeat="copyobject in objects">
-                        <a data-ng-click="copySelectedObject(copyobject);focusInput=true">{{copyobject.name}} ({{copyobject.fields.length}} fields)</a>
+                        <a data-ng-click="copySelectedObject(copyobject);focusInput=true">{{copyobject.name}}
+                            ({{copyobject.fields.length}} fields)</a>
                     </li>
                 </ul>
             </div>
@@ -22,9 +29,7 @@
             <a data-ng-href="#/object/{{currentObjectId}}/views" class="btn"><i class="fa fa-list-ul"></i> Views</a>
         </div>
     </div>
-</div>
 
-<div class="row">
     <div class="col-md-12" data-ng-init="focusInput=true">
         <!--<button class="btn" >show form and focus input</button>-->
         <table class="table">
@@ -42,24 +47,27 @@
             <!--Input new fields-->
             <tr>
                 <td>
-                    <label class="sr-only" for="newfieldname" >New Field</label>
-                    <input type="text" required data-ng-model="newField.name" class="form-control pull-left"  id="newfieldname" >
+                    <label class="sr-only" for="newfieldname">New Field</label>
+                    <input type="text" required data-ng-model="newField.name" class="form-control pull-left"
+                           id="newfieldname">
                 </td>
                 <td>
-                    <label class="sr-only" for="fieldType" >Select Type</label>
-                    <select class="form-control"  id="fieldType" ng-model="newField.type" autofocus>
+                    <label class="sr-only" for="fieldType">Select Type</label>
+                    <select class="form-control" id="fieldType" data-ng-model="newField.type" autofocus>
                         <option data-ng-repeat="fieldType in fieldTypes">{{fieldType.name}}</option>
                     </select>
                 </td>
                 <td>
-                    <label class="sr-only" for="fieldRequired" >Required</label>
+                    <label class="sr-only" for="fieldRequired">Required</label>
                     <select required class="form-control" id="fieldRequired" data-ng-model="newField.req">
                         <option selected>n</option>
                         <option>y</option>
                     </select>
                 </td>
                 <td>
-                    <button type="button" class="btn btn-primary pull-right" data-ng-click="addField(newField);focusInput=true"><i class="fa fa-plus-square-o"></i> Add</button>
+                    <button type="button" class="btn btn-primary pull-right"
+                            data-ng-click="addField(newField);focusInput=true"><i class="fa fa-plus-square-o"></i> Add
+                    </button>
                 </td>
             </tr>
             <tr data-ng-repeat="column in object.fields" data-ng-model="object.fields">
@@ -67,7 +75,11 @@
                 <td>{{column.type}}</td>
                 <td class="" data-ng-show="column.req == 'y'">{{column.req}}</td>
                 <td data-ng-show="column.req == 'n'">-</td>
-                <td><button type="button"  class="btn pull-right" data-ng-click="removeField(column)"><i class="fa fa-trash-o"></i> Delete</button></td>
+                <td>
+                    <button type="button" class="btn pull-right" data-ng-click="removeField(column)"><i
+                            class="fa fa-trash-o"></i> Delete
+                    </button>
+                </td>
             </tr>
         </table>
     </div>

@@ -1,6 +1,6 @@
 'use strict';
 
-describe('ConfigCtrl', function(){
+describe('ConfigAdminCtrl', function(){
 
     var scope, $httpBackend;//we'll use these in our tests
 
@@ -16,7 +16,7 @@ describe('ConfigCtrl', function(){
         //create an empty scope
         scope = $rootScope.$new();
         //declare the controller and inject our empty scope
-        $controller('ConfigCtrl', {$scope: scope});
+        $controller('ConfigAdminCtrl', {$scope: scope});
       }));
 
     afterEach(inject(function($rootScope) {

@@ -10,10 +10,13 @@ angular.module('ogcApp')
       'link': '/projects'
     }];
 
-    $scope.configLink = '/config';
-    $scope.profileLink = '/profile'
+    $scope.configAdminLink = '/configAdmin';
+    $scope.configProjectLink = '/configProjects';
+    $scope.configSmartListsLink = '/configSmartLists';
+    $scope.profileLink = '/profile';
     
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+
   });

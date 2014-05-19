@@ -236,3 +236,10 @@ only screen and (max-width : 480px) {
 .overdueDate {
     color: darkred;
 }
+
+.selectedItem {background: #b4dfa6;}
+
+.campaignColourDigital {
+    color: blue;
+}
+

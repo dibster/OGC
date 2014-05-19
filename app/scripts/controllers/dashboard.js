@@ -81,7 +81,7 @@ angular.module('ogcApp')
             if(typeof file === 'undefined') {
               file = {};
             }
-            else if (file.comment.length > 0) {
+            else if (typeof file.comment !== 'undefined') {
               // add a comment
               $scope.newsEditorEnabled=!$scope.newsEditorEnabled;
               $scope.AddNewsItem({'item' : file.comment });

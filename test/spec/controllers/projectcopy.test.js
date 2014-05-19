@@ -29,9 +29,9 @@ describe('ProjectCopyCtrl', function(){
 
     // tests start here
 
-    it('should find a 4 projects', function(){
+    it('should find 1 project', function(){
         $httpBackend.flush();
-        expect(scope.searchResults.length).toBe(4);
+        expect(scope.searchResults.length).toBe(1);
       });
 
     // select a project and have 4 tasks
@@ -90,7 +90,7 @@ describe('ProjectCopyCtrl', function(){
     // copy the project and reroute to the project dashboard
     it('should copy the project and reroute to the project dashboard', function(){
         $httpBackend.flush();
-        expect(scope.searchResults.length).toBe(4);
+        expect(scope.searchResults.length).toBe(1);
       });
 
   });

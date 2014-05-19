@@ -25,12 +25,12 @@ describe('Directive: fileList', function () {
         e.scope().files = testFiles;
         e.scope().$digest();
 
-    }));
+      }));
 
     it('should show a file item', inject(function () {
         expect(element.text()).toContain('This is a file');
-    }));
-});
+      }));
+  });
 /**
  * Created by dibster on 14/03/14.
  */

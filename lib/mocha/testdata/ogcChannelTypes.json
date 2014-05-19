@@ -1,0 +1,27 @@
+[
+    {
+        "name" : "Digital",
+        "description": "Text Field One Line"
+    },
+    {
+        "name" : "Event",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Relationship",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Advertising",
+        "description": "Text Field Multi Line"
+    },
+    {
+        "name" : "Database",
+        "description": "Similar to # tags"
+    },
+    {
+        "name" : "Direct",
+        "description": "Date Field"
+    }
+
+]

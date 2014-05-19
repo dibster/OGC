@@ -1,28 +1,24 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ConfigCtrl', function ($scope, Objects, ObjectTypes) {
+    .controller('ConfigSmartListsCtrl', function ($scope, Objects, ObjectDefinitionForType) {
 
         $scope.newObject = {};
         $scope.object = {};
+        $scope.search = {};
 
-        // get base admin object configuration data
-
-        Objects.query(function(response) {
+        ObjectDefinitionForType.query({type : 'List'},function(response) {
             $scope.objects = response;
-          });
-
-        ObjectTypes.query(function(response) {
-            $scope.types = response;
+            $scope.showTypeFilter = false;
           });
 
         // create a new Object
-        
+
         $scope.create = function() {
 
             $scope.object = new Objects({
                 name: $scope.newObject.name,
-                type: $scope.search.type,
+                type: 'List',
                 template : false,
                 views : [{name : 'Create', fields : []},{name : 'Edit', fields : []},{name : 'Show', fields : []},{name : 'List', fields : []},{name : 'Dashboard', fields : []}]
               });
@@ -36,9 +32,9 @@ angular.module('ogcApp')
           };
 
         $scope.removeObject = function(object) {
-          var index = $scope.objects.indexOf(object);
-          $scope.objects.splice(index, 1);
-          object.$remove();
-        };
+            var index = $scope.objects.indexOf(object);
+            $scope.objects.splice(index, 1);
+            object.$remove();
+          };
 
-      });
+    });
