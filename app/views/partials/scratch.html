@@ -1,43 +1,22 @@
 <div data-ng-include="'partials/navbar'"></div>
 
 <div class="row">
-    <div class="col-md-3">
-        <div class="panel panel-default">
-            <div class="panel-heading">Routes to Market</div>
-            <div class="panel-body">
-                    <div data-ng-repeat="group in marketingGroups" class="panel panel-default">
-                        <div class="panel-heading"><i class="fa fa-square campaignColour{{group.name}}"></i> {{group.name}}</div>
-                    </div>
-            </div>
-        </div>
+    <div class="col-md-4">
+
+        <form>
+            <label class="control-label" >Asset</label>
+            <select class="form-control"
+                    data-ng-model="scratch.selectedItem"
+                    ng-options="option.name for option in materialTypes"
+                    data-ng-click="getFieldTypes(scratch.selectedItem)"/>
+            <span data-ng-show="showTypeField">
+                <label class="control-label" >Type</label>
+                <select class="form-control"
+                        data-ng-model="scratch.selectedType"
+                        ng-options="option for option in TypeField.values"
+                        />
+            </span>
+        </form>
     </div>
-
-    <div class="col-md-9">
-        <table ng-table="tableParams" class="table">
-            <thead>
-            <tr>
-                <th data-ng-repeat="column in columnCollection">
-                    <div class="text-left">
-                        {{column.name}}
-                    </div>
-                </th>
-            </tr>
-            </thead>
-            <!--don't need to order by score as they come at the top anyway-->
-
-
-            <tr data-ng-repeat="channel in channels">
-                <td ng-repeat="column in columnCollection" sortable="column.name">
-                    <span data-ng-show="$index ==0"><a data-ng-click="getProjectSummary(project)">{{channel[column.name]}}</a></span>
-                    <span data-ng-show="$index !=0">
-                        <span data-ng-switch on="column.type">
-                             <span data-ng-switch-default>{{channel[column.name]}}</span>
-                        </span>
-                    </span>
-                </td>
-            </tr>
-        </table>
-    </div>
-
-    </div>
+</div>
 

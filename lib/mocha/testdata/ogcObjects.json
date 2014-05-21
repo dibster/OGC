@@ -162,8 +162,52 @@
         ]
     },
     {
+        "name" : "File",
+        "description": "Default File Object ...",
+        "type" : "File",
+        "template" : true,
+        "fields" : [{"name" : "Title", "type" : "Text","req" : "y"},
+            {"name" : "Description", "type" : "Note","req" : "n"}
+
+        ],
+        "views" : [
+            { "name" : "Create",
+                "fields" :  [
+                    {"name" : "Title", "type" : "Text","req" : "y"},
+                    {"name" : "Description", "type" : "Note","req" : "n"}
+                ]
+            },
+            { "name" : "Edit",
+                "fields" :  [
+                    {"name" : "Title", "type" : "Text","req" : "y"},
+                    {"name" : "Description", "type" : "Note","req" : "n"}
+                ]
+            },
+            { "name" : "Show",
+                "fields" :  [
+                    {"name" : "Title", "type" : "Text","req" : "y"},
+                    {"name" : "Description", "type" : "Note","req" : "n"}
+                ]
+            },
+            { "name" : "List",
+                "fields" :  [
+                    {"name" : "Title", "type" : "Text","req" : "y"},
+                    {"name" : "Description", "type" : "Note","req" : "n"}
+                ]
+            },
+            { "name" : "Dashboard",
+                "fields" :  [
+                    {"name" : "Title", "type" : "Text","req" : "y"},
+                    {"name" : "Description", "type" : "Note","req" : "n"}
+                ]
+            }
+
+        ]
+
+    },
+    {
         "name" : "Asset",
-        "description": "Default Asset Object ...",
+        "description": "Default Marketing Asset",
         "type" : "Asset",
         "template" : true,
         "fields" : [{"name" : "Title", "type" : "Text","req" : "y"},

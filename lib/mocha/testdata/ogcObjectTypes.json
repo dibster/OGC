@@ -12,6 +12,10 @@
         "description": "Milestone"
     },
     {
+        "name" : "File",
+        "description": "File"
+    },
+    {
         "name" : "Asset",
         "description": "Asset"
     },

@@ -1,53 +1,33 @@
 'use strict';
 
 angular.module('ogcApp')
-    .controller('ScratchCtrl', function ($scope, Objects, SayToConsole, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
+    .controller('ScratchCtrl', function ($scope, Objects, ObjectDefinitionForType, SayToConsole, ObjectTypes, ProjectTypes, PrepareRecord, $modal, Projects, hashTags, ngTableParams) {
 
-    $scope.marketingGroups = [{name : 'Digital', channel : [{Name : 'Podcast', Description : 'Radio Podcasts'}, {Name : 'Youtube'}, {Name : 'Podcast'}, {Name : 'Youtube'}, {Name : 'Podcast'}, {Name : 'Youtube'}]},{name : 'Event'},{name : 'Relationship'},{name : 'Advertising'},{name : 'Database'},{name : 'Direct'}];
-    $scope.channelGrid = [];
-    $scope.columnCollection = [{name : 'Name'}, {name : 'Description'}];
-    $scope.channels = [];
+    $scope.materialTypes = [];
+    $scope.selectedAssetType = {};
+    $scope.showTypeField = false;
+    ObjectDefinitionForType.query({type : 'Asset'},function(res) {
+        if (res.length > 0) {
+          $scope.materialTypes= res;
+        }
+      });
 
-
-    $scope.displayChannels = function(selectedGroup) {
-        $scope.channels = selectedGroup.channel;
-
-        $scope.tableParams = new ngTableParams({
-            page: 1,            // show first page
-            count: 50           // count per page
-          }, {
-            counts: [], // hide page counts control
-            total: $scope.channels.length, // length of data
-            getData: function($defer) {
-                $defer.resolve($scope.channels);
-              }
+    $scope.getFieldTypes = function(selectedAssetType) {
+        console.log('in type selection' + selectedAssetType.name);
+        // check for type field in the create view
+        var createView = _.find(selectedAssetType.views, function (view) {
+            return view.name === 'Create';
           });
-        /*jshint +W055 */
+        $scope.TypeField = _.find(createView.fields, function (field) {
+            return field.name === 'Type';
+          });
 
-        console.log($scope.channels);
+        $scope.showTypeField = false;
+
+        if (typeof $scope.TypeField !== 'undefined') {
+          $scope.showTypeField = true;
+          console.log('type ' + $scope.TypeField);
+        }
       };
-
-    $scope.displayChannels($scope.marketingGroups[0]);
-//    var numberOfMarketingGroups = $scope.marketingGroups.length;
-//    var i,j;
-//    for (i=0;i<numberOfMarketingGroups;i++) {
-//      var currentGroup = $scope.marketingGroups[i];
-//      var numberOfChannels;
-//      if (typeof currentGroup.channel.length === 'undefined') {
-//
-//        numberOfChannels = currentGroup.channel.length;
-//      }
-//      catch (err) {
-//            numberOfChannels = 0;
-//          }
-//      for (j=0;j<numberOfChannels;j++) {
-//
-//      }
-//
-//    }
-
-
-
-
   });
 

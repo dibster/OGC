@@ -60,6 +60,7 @@
                 <button type="submit" class="btn btn-primary" data-ng-click="AddNewsItem(news)">Post</button>
                 <button type="reset" class="btn" ng-click="newsEditorEnabled=!newsEditorEnabled">Cancel</button>
                 <p></p>
+                <hr>
             </div>
         </form>
         <!--Use Directive to show all news Items-->
@@ -82,13 +83,14 @@
                 <button type="submit" class="btn btn-primary" data-ng-click="AddTask(task)">Add</button>
                 <button type="reset" class="btn" ng-click="taskEditorEnabled=!taskEditorEnabled">Cancel</button>
                 <p></p>
+                <hr>
             </div>
         </form>
         <!--Use Directive to show all Tasks-->
         <div list-tasks tasks="project.tasks"></div>
     </div>
     <div class="col-md-4">
-        Files
+        Project Files
         <a data-ng-href="#/projectfiles/{{currentProjectId}}"><i class="fa fa-th"></i></a>
         <i class="fa fa-upload pull-right" ng-click="fileEditorEnabled=!fileEditorEnabled"></i>
         <hr>
@@ -113,6 +115,7 @@
                     <label for="url"></label>
                     <input type="text" class="form-control" id="url" data-ng-model="file.url" placeholder="http://">
                 </span>
+                <hr data-ng-hide="FileData.filename || file.url">
                 <br>
             </div>
             <div class="form-actions" data-ng-show="FileData.filename || file.url">
@@ -120,10 +123,32 @@
                 <button type="submit" class="btn" data-ng-click="AddURL(file)">Save and Add more</button>
                 <button type="reset" class="btn" ng-click="fileEditorEnabled=!fileEditorEnabled">Cancel</button>
                 <p></p>
+                <hr>
             </div>
         </form>
         <!--Use Directive to show all Files-->
         <div list-files files="project.files"></div>
+        <hr>
+        Marketing Assets
+        <a data-ng-href="#/projectassets/{{currentProjectId}}"><i class="fa fa-th"></i></a>
+        <i class="fa fa-plus-square pull-right" ng-click="assetEditorEnabled=!assetEditorEnabled"></i>
+        <hr>
+        <form role="form" ng-show="assetEditorEnabled">
+
+            <div class="form-group">
+                <label for="assetDescription"></label>
+                <textarea class="form-control" id="assetDescription" data-ng-model="asset.comment"  placeholder="Description" rows="3"></textarea>
+                <br>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="btn btn-primary" data-ng-click="AddAsset(asset)">Save</button>
+                <button type="reset" class="btn" ng-click="assetEditorEnabled=!assetEditorEnabled">Cancel</button>
+                <p></p>
+                <hr>
+            </div>
+        </form>
+        <!--Use Directive to show all Files-->
+        <div list-assets assets="project.assets"></div>
     </div>
 </div>
 
